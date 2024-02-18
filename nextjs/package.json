@@ -1,0 +1,50 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@ant-design/cssinjs": "^1.18.2",
+    "@ant-design/icons": "^5.2.6",
+    "@ant-design/nextjs-registry": "^1.0.0",
+    "@ant-design/pro-components": "^2.6.43",
+    "@ant-design/pro-layout": "^7.17.16",
+    "@reduxjs/toolkit": "^2.0.1",
+    "antd": "^5.12.5",
+    "async-mutex": "^0.4.0",
+    "dotenv": "^16.3.1",
+    "html-react-parser": "^5.1.1",
+    "lodash": "^4.17.21",
+    "next": "14.0.4",
+    "query-string": "^8.1.0",
+    "react": "^18",
+    "react-countup": "^6.5.0",
+    "react-device-detect": "^2.2.3",
+    "react-dom": "^18",
+    "react-icons": "^4.12.0",
+    "react-quill": "^2.0.0",
+    "react-redux": "^9.0.4",
+    "react-spinners": "^0.13.8",
+    "sass": "^1.69.5",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "@types/lodash": "^4.14.202",
+    "@types/ms": "^0.7.34",
+    "@types/node": "^20",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "@types/uuid": "^9.0.7",
+    "eslint": "^8",
+    "eslint-config-next": "14.0.4",
+    "file-loader": "^6.2.0",
+    "typescript": "^5",
+    "webpack": "^5.90.0",
+    "worker-loader": "^3.0.8"
+  }
+}
