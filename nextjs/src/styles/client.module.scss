@@ -305,61 +305,70 @@
 }
 
 .detail-job-section {
-  .header {
-    margin: 20px 0;
-    color: #353535;
-    font-size: 27px;
-  }
+  margin-top: 24px;
+  margin-bottom: 24px;
 
-  .btn-apply {
-    width: 100%;
-    cursor: pointer;
-    text-align: center;
-    color: #fff;
-    text-decoration: none;
-    -webkit-font-smoothing: antialiased;
-    font-size: 20px;
-    padding: 10px 15px;
-    border: 0;
-    border-radius: 5px;
-    background-color: #ea1e30;
-    -webkit-font-smoothing: antialiased;
-    outline: 0;
+  .content-job-section {
+    background-color: #fff;
+    border-radius: 16px;
+    padding: 20px;
 
-    &:hover {
-      background-color: #d82727;
+    .header {
+      margin-bottom: 20px;
+      color: #353535;
+      font-size: 27px;
     }
-  }
 
-  .salary {
-    padding: 15px 0;
-  }
+    .btn-apply {
+      width: 100%;
+      cursor: pointer;
+      text-align: center;
+      color: #fff;
+      text-decoration: none;
+      -webkit-font-smoothing: antialiased;
+      font-size: 20px;
+      padding: 10px 15px;
+      border: 0;
+      border-radius: 5px;
+      background-color: #ea1e30;
+      -webkit-font-smoothing: antialiased;
+      outline: 0;
 
-  .location {
-    padding-bottom: 15px;
-  }
+      &:hover {
+        background-color: #d82727;
+      }
+    }
 
-  h2 {
-    font-size: 23px;
-    color: #353535;
-    font-weight: 400;
-    margin: 25px 0 0;
-  }
+    .salary {
+      padding: 15px 0;
+    }
 
-  ul {
-    padding-left: 2rem;
-  }
+    .location {
+      padding-bottom: 15px;
+    }
 
-  li {
-    line-height: 2em;
-  }
+    h2 {
+      font-size: 23px;
+      color: #353535;
+      font-weight: 400;
+      margin: 25px 0 0;
+    }
 
-  p {
-    color: #3a3a3a;
-    font-size: 16px;
-    line-height: 1.7em;
-    width: 100%;
-    line-height: 2em;
+    ul {
+      padding-left: 2rem;
+    }
+
+    li {
+      line-height: 2em;
+    }
+
+    p {
+      color: #3a3a3a;
+      font-size: 16px;
+      line-height: 1.7em;
+      width: 100%;
+      line-height: 2em;
+    }
   }
 
   .company {

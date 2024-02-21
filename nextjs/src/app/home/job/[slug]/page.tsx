@@ -22,7 +22,7 @@ dayjs.extend(relativeTime);
 const ClientJobDetailPage = (props: any) => {
   const [jobDetail, setJobDetail] = useState<IJob | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  console.log(jobDetail);
+
   const [isModalOpen, setIsModalOpen] = useState<boolean>(false);
 
   let params = useSearchParams();
@@ -51,45 +51,47 @@ const ClientJobDetailPage = (props: any) => {
           {jobDetail && jobDetail.id && (
             <>
               <Col span={24} md={16}>
-                <div className={styles["header"]}>{jobDetail.name}</div>
-                <div>
-                  <button
-                    onClick={() => setIsModalOpen(true)}
-                    className={styles["btn-apply"]}
-                  >
-                    Apply Now
-                  </button>
+                <div className={styles["content-job-section"]}>
+                  <div className={styles["header"]}>{jobDetail.name}</div>
+                  <div>
+                    <button
+                      onClick={() => setIsModalOpen(true)}
+                      className={styles["btn-apply"]}
+                    >
+                      Ứng tuyển
+                    </button>
+                  </div>
+                  <Divider />
+                  <div className={styles["skills"]}>
+                    {jobDetail?.skills?.map((item, index) => {
+                      return (
+                        <Tag key={`${index}-key`} color="gold">
+                          {item as unknown as string}
+                        </Tag>
+                      );
+                    })}
+                  </div>
+                  <div className={styles["salary"]}>
+                    <DollarOutlined />
+                    <span>
+                      &nbsp;
+                      {(jobDetail.salary + "")?.replace(
+                        /\B(?=(\d{3})+(?!\d))/g,
+                        ","
+                      )}{" "}
+                      đ
+                    </span>
+                  </div>
+                  <div className={styles["location"]}>
+                    <EnvironmentOutlined style={{ color: "#58aaab" }} />
+                    &nbsp;{getLocationName(jobDetail.location)}
+                  </div>
+                  <div>
+                    <HistoryOutlined /> {dayjs(jobDetail.updatedAt).fromNow()}
+                  </div>
+                  <Divider />
+                  {parse(jobDetail.description)}
                 </div>
-                <Divider />
-                <div className={styles["skills"]}>
-                  {jobDetail?.skills?.map((item, index) => {
-                    return (
-                      <Tag key={`${index}-key`} color="gold">
-                        {item as unknown as string}
-                      </Tag>
-                    );
-                  })}
-                </div>
-                <div className={styles["salary"]}>
-                  <DollarOutlined />
-                  <span>
-                    &nbsp;
-                    {(jobDetail.salary + "")?.replace(
-                      /\B(?=(\d{3})+(?!\d))/g,
-                      ","
-                    )}{" "}
-                    đ
-                  </span>
-                </div>
-                <div className={styles["location"]}>
-                  <EnvironmentOutlined style={{ color: "#58aaab" }} />
-                  &nbsp;{getLocationName(jobDetail.location)}
-                </div>
-                <div>
-                  <HistoryOutlined /> {dayjs(jobDetail.updatedAt).fromNow()}
-                </div>
-                <Divider />
-                {parse(jobDetail.description)}
               </Col>
 
               <Col span={24} md={8}>
@@ -100,7 +102,11 @@ const ClientJobDetailPage = (props: any) => {
                       src={`${process.env.NEXT_PUBLIC_URL_BACKEND}/images/company/${jobDetail?.company?.logo}`}
                       width={100}
                       height={100}
-                      style={{ width: "100%", height: "100%" }}
+                      style={{
+                        width: "100%",
+                        height: "100%",
+                        borderRadius: "12px",
+                      }}
                     />
                   </div>
                   <div>{jobDetail.company?.name}</div>

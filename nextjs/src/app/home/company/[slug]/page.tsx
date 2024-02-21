@@ -40,15 +40,17 @@ const ClientCompanyDetailPage = (props: any) => {
           {companyDetail && companyDetail.id && (
             <>
               <Col span={24} md={16}>
-                <div className={styles["header"]}>{companyDetail.name}</div>
+                <div className={styles["content-job-section"]}>
+                  <div className={styles["header"]}>{companyDetail.name}</div>
 
-                <div className={styles["location"]}>
-                  <EnvironmentOutlined style={{ color: "#58aaab" }} />
-                  &nbsp;{companyDetail?.address}
+                  <div className={styles["location"]}>
+                    <EnvironmentOutlined style={{ color: "#58aaab" }} />
+                    &nbsp;{companyDetail?.address}
+                  </div>
+
+                  <Divider />
+                  {parse(companyDetail?.description ?? "")}
                 </div>
-
-                <Divider />
-                {parse(companyDetail?.description ?? "")}
               </Col>
 
               <Col span={24} md={8}>
