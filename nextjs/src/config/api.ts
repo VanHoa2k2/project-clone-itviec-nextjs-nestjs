@@ -27,6 +27,9 @@ export const callRegister = async (data: IUser) => {
       body: JSON.stringify({
         ...data,
         age: +data.age,
+        role: {
+          id: 226,
+        },
       }),
       headers: {
         "Content-Type": "application/json",

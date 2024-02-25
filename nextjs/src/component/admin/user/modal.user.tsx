@@ -66,7 +66,7 @@ const ModalUser = (props: IProps) => {
       valuesForm;
     if (dataInit?.id) {
       //update
-      const user = {
+      const user: IUser = {
         id: dataInit.id,
         name,
         email,
@@ -95,7 +95,7 @@ const ModalUser = (props: IProps) => {
       }
     } else {
       //create
-      const user = {
+      const user: IUser = {
         name,
         email,
         password,

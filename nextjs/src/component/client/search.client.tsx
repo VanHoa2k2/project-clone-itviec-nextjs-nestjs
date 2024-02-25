@@ -8,7 +8,13 @@ import { LOCATION_LIST, SKILLS_LIST } from "@/config/utils";
 import { ProForm } from "@ant-design/pro-components";
 import { useAppDispatch, useAppSelector } from "@/app/redux/hooks";
 import { fetchJob } from "@/app/redux/slice/jobSlide";
-import { useContext, useEffect, useState } from "react";
+import {
+  Dispatch,
+  SetStateAction,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
 import styles from "@/styles/client.module.scss";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import ISearchJobContext, {
@@ -35,6 +41,7 @@ const SearchClient = (props: any) => {
   const location = searchParams.get("location") as string | undefined;
 
   const onFinish = async (values: any) => {
+    searchJobBySkill.setCurrentNav("all-job");
     searchJobBySkill.setLocationSearch(values.location);
     searchJobBySkill.setSkillSearch(values.skill);
     if (pathname === "/home") {

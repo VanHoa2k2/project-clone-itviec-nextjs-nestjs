@@ -13,7 +13,7 @@ import {
 import { useState } from "react";
 // import { callRegister } from 'config/api';
 import styles from "@/styles/auth.module.scss";
-import { IUser } from "../types/backend";
+import { IUser } from "@/types/backend";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { callRegister } from "@/config/api";

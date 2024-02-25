@@ -7,6 +7,8 @@ import { ILike, Repository } from 'typeorm';
 import { IUser } from 'src/users/user.interface';
 import aqp from 'api-query-params';
 const PDFExtract = require('pdf.js-extract').PDFExtract;
+import TfIdf from 'node-tfidf';
+// const TfIdf = require('node-tfidf');
 // import { PDFExtract } from 'pdf.js-extract';
 import { ConfigService } from '@nestjs/config';
 
@@ -204,6 +206,8 @@ export class JobsService {
     filename: string,
   ) {
     try {
+      const tfidf = new TfIdf();
+
       const { filter, sort } = aqp(qs);
       delete filter.current;
       delete filter.pageSize;
@@ -218,10 +222,6 @@ export class JobsService {
       });
 
       const [result, totalItems] = await this.jobRepository.findAndCount({
-        // where: regexFilter,
-        // take: defaultLimit,
-        // skip: offset,
-        // order: sort as any, // Ép kiểu dữ liệu
         relations: ['skills', 'company'],
       });
 
@@ -248,25 +248,33 @@ export class JobsService {
           });
           const textFile = textArr.join('');
           const textFileLowerCase = textFile.toLocaleLowerCase();
+          tfidf.addDocument(textFileLowerCase);
+
           result.map((job) => {
-            const filterJobSkill = job?.skills.filter((skill) => {
+            const measures = [];
+            job?.skills.map((skill) => {
               const skillNameLowerCase = skill.name.toLocaleLowerCase();
-              if (
-                skillNameLowerCase === 'java' &&
-                textFileLowerCase.includes('javascript')
-              ) {
-                return;
-              } else {
-                return textFileLowerCase.includes(skillNameLowerCase);
-              }
+
+              tfidf.tfidfs(skillNameLowerCase, (i, measure) => {
+                measures.push({ measure });
+              });
             });
-            // console.log(filterJobSkill);
-            if (filterJobSkill.length !== 0) {
-              resultFinal.push(job);
+            const totalMeasures = measures.reduce(
+              (total, currentValue) => total + currentValue.measure,
+              0,
+            );
+
+            if (totalMeasures !== 0) {
+              resultFinal.push({ ...job, totalMeasures });
             }
           });
+          resultFinal.sort(function (a, b) {
+            return b.totalMeasures - a.totalMeasures;
+          });
+          resultFinal.forEach((job) => {
+            delete job.totalMeasures;
+          });
           resolve(resultFinal);
-          // console.log(resultFinal);
         });
       });
       let resultJobsFind = resultFinal.slice(0, limit);

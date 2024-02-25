@@ -13,7 +13,7 @@ export interface IUser {
   age: number;
   gender: string;
   address: string;
-  urlCV: string;
+  urlCV?: string;
   role?: {
     id: number;
     name?: string;

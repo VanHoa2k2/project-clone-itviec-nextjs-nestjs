@@ -71,10 +71,11 @@ const ManageResume = () => {
         <Row gutter={[10, 10]}>
           <Col span={24}>
             <div className={`${styles["resume-title"]}`}>
-              <p>Upload CV để các cơ hội việc làm tự tìm đến bạn</p>
               <p>
-                Giảm đến 50% thời gian cần thiết để tìm được một công việc phù
-                hợp
+                Bạn đã có sẵn CV của mình, chỉ cần tải CV lên, hệ thống sẽ tự
+                động đề xuất những công việc IT phù hợp nhất với cv của bạn.
+                Tiết kiệm thời gian, tìm việc thông minh, nắm bắt cơ hội và làm
+                chủ đường đua nghề nghiệp của chính mình.
               </p>
               <h3>
                 Tải CV của bạn bên dưới để có thể sử dụng xuyên suốt quá trình

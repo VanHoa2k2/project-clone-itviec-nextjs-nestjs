@@ -23,6 +23,7 @@ dayjs.extend(relativeTime);
 
 interface IProps {
   detail?: boolean;
+  showTitle?: boolean;
   showPagination?: boolean;
 }
 
@@ -30,7 +31,7 @@ const JobCard = (props: IProps) => {
   dayjs.locale("vi");
   const searchJobBySkill: ISearchJobContext = useContext(searchJobContext);
 
-  const { showPagination = false, detail = true } = props;
+  const { showPagination = false, showTitle = false, detail = true } = props;
   const [displayJob, setDisplayJob] = useState<IJob[] | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -53,7 +54,6 @@ const JobCard = (props: IProps) => {
   ]);
 
   const fetchJob = async () => {
-    console.log(searchJobBySkill.skillSearch);
     const skillQuery = `${
       searchJobBySkill.skillSearch
         ? `&skills=${searchJobBySkill.skillSearch}`
@@ -106,16 +106,18 @@ const JobCard = (props: IProps) => {
       <div className={`${styles["job-content"]}`}>
         <Spin spinning={isLoading} tip="Loading...">
           <Row gutter={[20, 20]}>
-            <Col span={24}>
-              <div
-                className={
-                  isMobile ? styles["dflex-mobile"] : styles["dflex-pc"]
-                }
-              >
-                <span className={styles["title"]}>Công việc mới nhất</span>
-                {!showPagination && <Link href="job">Xem tất cả</Link>}
-              </div>
-            </Col>
+            {showTitle && (
+              <Col span={24}>
+                <div
+                  className={
+                    isMobile ? styles["dflex-mobile"] : styles["dflex-pc"]
+                  }
+                >
+                  <span className={styles["title"]}>Công việc mới nhất</span>
+                  {!showPagination && <Link href="home/job">Xem tất cả</Link>}
+                </div>
+              </Col>
+            )}
 
             {displayJob?.map((item) => {
               return (

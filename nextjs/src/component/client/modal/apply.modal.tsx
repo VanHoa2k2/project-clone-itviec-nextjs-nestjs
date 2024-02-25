@@ -40,7 +40,9 @@ const ApplyModal = (props: IProps) => {
 
   const route = useRouter();
 
-  const [valueCV, setValueCV] = useState<string>("current-cv");
+  const [valueCV, setValueCV] = useState<string>(
+    resume.currentCV ? "current-cv" : "new-cv"
+  );
 
   const onChange = (e: RadioChangeEvent) => {
     setValueCV(e.target.value);
@@ -150,26 +152,28 @@ const ApplyModal = (props: IProps) => {
                   </Col>
                   <Radio.Group onChange={onChange} value={valueCV}>
                     <Space direction="vertical">
-                      <Col span={24}>
-                        <div
-                          className={
-                            valueCV === "current-cv"
-                              ? `${styles["box-apply"]} ${styles["active"]}`
-                              : `${styles["box-apply"]}`
-                          }
-                        >
-                          <Radio value={"current-cv"}>
-                            <ProForm.Item label={"Sử dụng CV hiện tại"}>
-                              <a
-                                href={`${process.env.NEXT_PUBLIC_URL_BACKEND}/images/resume/${resume.currentCV}`}
-                                target="_blank"
-                              >
-                                {resume.currentCV}
-                              </a>
-                            </ProForm.Item>
-                          </Radio>
-                        </div>
-                      </Col>
+                      {resume.currentCV && (
+                        <Col span={24}>
+                          <div
+                            className={
+                              valueCV === "current-cv"
+                                ? `${styles["box-apply"]} ${styles["active"]}`
+                                : `${styles["box-apply"]}`
+                            }
+                          >
+                            <Radio value={"current-cv"}>
+                              <ProForm.Item label={"Sử dụng CV hiện tại"}>
+                                <a
+                                  href={`${process.env.NEXT_PUBLIC_URL_BACKEND}/images/resume/${resume.currentCV}`}
+                                  target="_blank"
+                                >
+                                  {resume.currentCV}
+                                </a>
+                              </ProForm.Item>
+                            </Radio>
+                          </div>
+                        </Col>
+                      )}
                       <Col span={24}>
                         <div
                           className={

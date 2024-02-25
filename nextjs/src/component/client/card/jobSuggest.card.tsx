@@ -19,13 +19,16 @@ dayjs.extend(relativeTime);
 
 interface IProps {
   showPagination?: boolean;
+  showTitle?: boolean;
   resume: IResumeContext;
 }
 
 const JobSuggestCard = (props: IProps) => {
-  const { showPagination = false, resume } = props;
+  dayjs.locale("vi");
+  const { showPagination = false, showTitle = false, resume } = props;
 
   const [displayJob, setDisplayJob] = useState<IJob[] | null>(null);
+  console.log(displayJob);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const [current, setCurrent] = useState(1);
@@ -84,16 +87,18 @@ const JobSuggestCard = (props: IProps) => {
       <div className={`${styles["job-content"]}`}>
         <Spin spinning={isLoading} tip="Loading...">
           <Row gutter={[20, 20]}>
-            <Col span={24}>
-              <div
-                className={
-                  isMobile ? styles["dflex-mobile"] : styles["dflex-pc"]
-                }
-              >
-                <span className={styles["title"]}>Công việc gợi ý</span>
-                {!showPagination && <Link href="job">Xem tất cả</Link>}
-              </div>
-            </Col>
+            {showTitle && (
+              <Col span={24}>
+                <div
+                  className={
+                    isMobile ? styles["dflex-mobile"] : styles["dflex-pc"]
+                  }
+                >
+                  <span className={styles["title"]}>Công việc gợi ý</span>
+                  {!showPagination && <Link href="job">Xem tất cả</Link>}
+                </div>
+              </Col>
+            )}
 
             {displayJob?.map((item) => {
               return (
