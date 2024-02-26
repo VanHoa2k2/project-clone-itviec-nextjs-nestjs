@@ -1,6 +1,6 @@
 "use client";
 
-import { useSearchParams } from "next/navigation";
+import { useRouter, useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
 import { IJob } from "@/types/backend";
 import { callFetchJobById } from "@/config/api";
@@ -12,7 +12,7 @@ import {
   EnvironmentOutlined,
   HistoryOutlined,
 } from "@ant-design/icons";
-import { getLocationName } from "@/config/utils";
+import { convertSlug, getLocationName } from "@/config/utils";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import ApplyModal from "@/component/client/modal/apply.modal";
@@ -41,6 +41,14 @@ const ClientJobDetailPage = (props: any) => {
     };
     init();
   }, [id]);
+
+  const route = useRouter();
+  const handleViewDetailCompany = (item: any) => {
+    if (item.name) {
+      const slug = convertSlug(item.name);
+      route.push(`/home/company/${slug}?id=${item.id}`);
+    }
+  };
 
   return (
     <div className={`${styles["container"]} ${styles["detail-job-section"]}`}>
@@ -95,7 +103,11 @@ const ClientJobDetailPage = (props: any) => {
               </Col>
 
               <Col span={24} md={8}>
-                <div className={styles["company"]}>
+                <div
+                  className={styles["company"]}
+                  style={{ cursor: "pointer" }}
+                  onClick={() => handleViewDetailCompany(jobDetail.company)}
+                >
                   <div>
                     <Image
                       alt="example"

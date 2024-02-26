@@ -1,32 +1,32 @@
 "use client";
 
-import { callFetchJob, callGetJobsSuggestByCv } from "@/config/api";
-import { LOCATION_LIST, convertSlug, getLocationName } from "@/config/utils";
+import { callFetchJob } from "@/config/api";
+import { convertSlug, getLocationName } from "@/config/utils";
 import { IJob } from "@/types/backend";
 import { EnvironmentOutlined, ThunderboltOutlined } from "@ant-design/icons";
-import { Card, Col, Empty, Pagination, Row, Spin } from "antd";
-import { useState, useEffect, useContext } from "react";
+import { Card, Col, Empty, Row, Spin } from "antd";
+import { useState, useEffect } from "react";
 import { isMobile } from "react-device-detect";
 import styles from "@/styles/client.module.scss";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import "dayjs/locale/vi";
 import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
-import IResumeContext from "@/contextAPI/resumeContext";
 import bgCard from "../../../../public/bg-top-emp.svg";
+import { InputNumberProps } from "antd/lib";
+
 dayjs.extend(relativeTime);
 
 interface IProps {
-  showPagination?: boolean;
-  showTitle?: boolean;
-  resume: IResumeContext;
+  companyId: number;
 }
 
-const JobSuggestCard = (props: IProps) => {
+const JobByCompany = (props: IProps) => {
   dayjs.locale("vi");
-  const { showPagination = false, showTitle = false, resume } = props;
 
+  const { companyId } = props;
   const [displayJob, setDisplayJob] = useState<IJob[] | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
@@ -37,15 +37,13 @@ const JobSuggestCard = (props: IProps) => {
   const [sortQuery, setSortQuery] = useState("sort=-updatedAt");
   const route = useRouter();
 
-  // const resume: IResumeContext = useContext(resumeContext);
-
   useEffect(() => {
     fetchJob();
-  }, [current, pageSize, filter, sortQuery, resume?.currentCV]);
+  }, [current, pageSize, filter, sortQuery]);
 
   const fetchJob = async () => {
     setIsLoading(true);
-    let query = `current=${current}&pageSize=${pageSize}`;
+    let query = `current=${current}&pageSize=${pageSize}&company=${companyId}`;
     if (filter) {
       query += `&${filter}`;
     }
@@ -53,27 +51,12 @@ const JobSuggestCard = (props: IProps) => {
       query += `&${sortQuery}`;
     }
 
-    if (resume?.currentCV?.length !== 0) {
-      const res = await callGetJobsSuggestByCv(query, resume?.currentCV);
-      if (res && res.data) {
-        setDisplayJob(res.data.result);
-        setTotal(res.data.meta.total);
-      }
-      setIsLoading(false);
+    const res = await callFetchJob(query);
+    if (res && res.data) {
+      setDisplayJob(res.data.result);
+      setTotal(res.data.meta.total);
     }
-  };
-
-  const handleOnchangePage = (pagination: {
-    current: number;
-    pageSize: number;
-  }) => {
-    if (pagination && pagination.current !== current) {
-      setCurrent(pagination.current);
-    }
-    if (pagination && pagination.pageSize !== pageSize) {
-      setPageSize(pagination.pageSize);
-      setCurrent(1);
-    }
+    setIsLoading(false);
   };
 
   const handleViewDetailJob = (item: IJob) => {
@@ -86,26 +69,25 @@ const JobSuggestCard = (props: IProps) => {
       <div className={`${styles["job-content"]}`}>
         <Spin spinning={isLoading} tip="Loading...">
           <Row gutter={[20, 20]}>
-            {showTitle && (
-              <Col span={24}>
-                <div
-                  className={
-                    isMobile ? styles["dflex-mobile"] : styles["dflex-pc"]
-                  }
-                >
-                  <span className={styles["title"]}>Công việc gợi ý</span>
-                  {!showPagination && <Link href="job">Xem tất cả</Link>}
-                </div>
-              </Col>
-            )}
+            <Col span={24}>
+              <h2
+                className={
+                  isMobile ? styles["dflex-mobile"] : styles["dflex-pc"]
+                }
+              >
+                {displayJob?.length} việc làm đang tuyển dụng
+              </h2>
+            </Col>
 
             {displayJob?.map((item) => {
               return (
-                <Col span={24} md={12} key={item.id}>
+                <Col span={24} md={24} key={item.id}>
                   <Card
                     style={{
+                      minHeight: "150px",
                       boxShadow: "0px 6px 32px rgba(0, 0, 0, 0.08)",
-                      position: "relative",
+                      background:
+                        "linear-gradient(167deg, #f8f8f8 2.38%, #fff 70.43%)",
                     }}
                     size="small"
                     title={null}
@@ -162,26 +144,10 @@ const JobSuggestCard = (props: IProps) => {
                 </div>
               )}
           </Row>
-          {showPagination && (
-            <>
-              <div style={{ marginTop: 30 }}></div>
-              <Row style={{ display: "flex", justifyContent: "center" }}>
-                <Pagination
-                  current={current}
-                  total={total}
-                  pageSize={pageSize}
-                  responsive
-                  onChange={(p: number, s: number) =>
-                    handleOnchangePage({ current: p, pageSize: s })
-                  }
-                />
-              </Row>
-            </>
-          )}
         </Spin>
       </div>
     </div>
   );
 };
 
-export default JobSuggestCard;
+export default JobByCompany;

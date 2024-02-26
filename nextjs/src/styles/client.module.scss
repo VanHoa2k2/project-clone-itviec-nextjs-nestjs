@@ -305,7 +305,7 @@
 }
 
 .detail-job-section {
-  margin-top: 24px;
+  margin-top: 34px;
   margin-bottom: 24px;
 
   .content-job-section {
@@ -317,6 +317,16 @@
       margin-bottom: 20px;
       color: #353535;
       font-size: 27px;
+    }
+
+    .header-company-section {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+
+      img {
+        border-radius: 8px;
+      }
     }
 
     .btn-apply {

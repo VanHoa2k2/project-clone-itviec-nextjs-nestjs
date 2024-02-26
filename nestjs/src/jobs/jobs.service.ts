@@ -63,8 +63,6 @@ export class JobsService {
     delete filter.current;
     delete filter.pageSize;
 
-    // const finalResult = [];
-
     const offset = (currentPage - 1) * limit;
     const defaultLimit = limit ? limit : 10;
 
@@ -72,21 +70,20 @@ export class JobsService {
 
     // Chuyển đổi filter để áp dụng like cho mỗi trường
     Object.keys(filter).forEach((key) => {
-      regexFilter[key] =
-        key !== 'skills'
-          ? ILike(`%${filter[key]}%`)
-          : {
-              name: ILike(`%${filter.skills}%`),
-            };
+      if (key === 'company') {
+        regexFilter[key] = {
+          id: filter[key],
+        };
+      } else {
+        regexFilter[key] =
+          key !== 'skills'
+            ? ILike(`%${filter[key]}%`)
+            : {
+                name: ILike(`%${filter.skills}%`),
+              };
+      }
     });
 
-    // if (filter.skills) {
-    //   Object.keys(filter).forEach((key) => {
-    //     regexFilter[key] = {
-    //       name: ILike(`%${filter.skills}%`),
-    //     };
-    //   });
-    // }
     const [result, totalItems] = await this.jobRepository.findAndCount({
       where: regexFilter,
       take: defaultLimit,

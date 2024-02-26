@@ -9,6 +9,7 @@ import parse from "html-react-parser";
 import { Col, Divider, Row, Skeleton } from "antd";
 import { EnvironmentOutlined } from "@ant-design/icons";
 import Image from "next/image";
+import JobByCompany from "@/component/client/card/jobByCompany.card";
 
 const ClientCompanyDetailPage = (props: any) => {
   const [companyDetail, setCompanyDetail] = useState<ICompany | null>(null);
@@ -41,11 +42,25 @@ const ClientCompanyDetailPage = (props: any) => {
             <>
               <Col span={24} md={16}>
                 <div className={styles["content-job-section"]}>
-                  <div className={styles["header"]}>{companyDetail.name}</div>
+                  <div className={styles["header-company-section"]}>
+                    <Image
+                      alt="example"
+                      src={`${process.env.NEXT_PUBLIC_URL_BACKEND}/images/company/${companyDetail?.logo}`}
+                      width={100}
+                      height={100}
+                      style={{ width: "90px", height: "90px" }}
+                    />
 
-                  <div className={styles["location"]}>
-                    <EnvironmentOutlined style={{ color: "#58aaab" }} />
-                    &nbsp;{companyDetail?.address}
+                    <div className={styles["title"]}>
+                      <div className={styles["header"]}>
+                        {companyDetail.name}
+                      </div>
+
+                      <div className={styles["location"]}>
+                        <EnvironmentOutlined style={{ color: "#58aaab" }} />
+                        &nbsp;{companyDetail?.address}
+                      </div>
+                    </div>
                   </div>
 
                   <Divider />
@@ -54,18 +69,7 @@ const ClientCompanyDetailPage = (props: any) => {
               </Col>
 
               <Col span={24} md={8}>
-                <div className={styles["company"]}>
-                  <div>
-                    <Image
-                      alt="example"
-                      src={`${process.env.NEXT_PUBLIC_URL_BACKEND}/images/company/${companyDetail?.logo}`}
-                      width={100}
-                      height={100}
-                      style={{ width: "100%", height: "100%" }}
-                    />
-                  </div>
-                  <div>{companyDetail?.name}</div>
-                </div>
+                <JobByCompany companyId={companyDetail.id} />
               </Col>
             </>
           )}
