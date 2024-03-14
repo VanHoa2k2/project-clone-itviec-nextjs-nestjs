@@ -107,11 +107,13 @@ const CompanyPage = () => {
                 fontSize: "20px",
                 color: "#ffa500",
               }}
-              type=""
+              type="button"
               onClick={() => {
                 setOpenModal(true);
                 setDataInit(entity);
               }}
+              onPointerEnterCapture={() => {}}
+              onPointerLeaveCapture={() => {}}
             />
           </Access>
           <Access permission={ALL_PERMISSIONS.COMPANIES.DELETE} hideChildren>
