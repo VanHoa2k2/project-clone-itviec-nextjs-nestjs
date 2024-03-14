@@ -198,8 +198,10 @@
         }
 
         .job-updatedAt {
+          position: absolute;
+          right: 0;
+          bottom: 0;
           display: block;
-          float: right;
           color: #919191;
         }
       }
@@ -453,6 +455,23 @@
       outline-offset: none !important;
       transition: none;
     }
+  }
+}
+
+.section-update-account {
+  label {
+    font-size: 16px !important;
+    font-weight: 600;
+  }
+
+  .button-update-account {
+    margin-top: 30px !important;
+    background-color: #ed1b2f;
+    color: #fff;
+  }
+
+  .button-update-account:hover {
+    background-color: #c82222 !important;
   }
 }
 

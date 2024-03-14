@@ -2,7 +2,7 @@
 
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState, useEffect } from "react";
-import { IJob } from "@/types/backend";
+import { ICompany, IJob } from "@/types/backend";
 import { callFetchJobById } from "@/config/api";
 import styles from "@/styles/client.module.scss";
 import parse from "html-react-parser";
@@ -43,7 +43,7 @@ const ClientJobDetailPage = (props: any) => {
   }, [id]);
 
   const route = useRouter();
-  const handleViewDetailCompany = (item: any) => {
+  const handleViewDetailCompany = (item: ICompany) => {
     if (item.name) {
       const slug = convertSlug(item.name);
       route.push(`/home/company/${slug}?id=${item.id}`);
@@ -106,7 +106,9 @@ const ClientJobDetailPage = (props: any) => {
                 <div
                   className={styles["company"]}
                   style={{ cursor: "pointer" }}
-                  onClick={() => handleViewDetailCompany(jobDetail.company)}
+                  onClick={() =>
+                    handleViewDetailCompany(jobDetail.company as ICompany)
+                  }
                 >
                   <div>
                     <Image

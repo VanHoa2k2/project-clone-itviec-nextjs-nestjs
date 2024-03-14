@@ -105,9 +105,12 @@ const ModalUser = (props: IProps) => {
         role: {
           id: role?.value,
         },
-        company: {
-          id: company?.value,
-        },
+        company:
+          roleSelect === "NORMAL_USER"
+            ? undefined
+            : {
+                id: company?.value,
+              },
       };
       const res = await callCreateUser(user);
       if (res.data) {
@@ -281,6 +284,7 @@ const ModalUser = (props: IProps) => {
                 showSearch
                 defaultValue={companies}
                 value={companies}
+                disabled={roleSelect === "NORMAL_USER" ? true : false}
                 placeholder="Chọn công ty"
                 fetchOptions={fetchCompanyList}
                 onChange={(newValue: any) => {

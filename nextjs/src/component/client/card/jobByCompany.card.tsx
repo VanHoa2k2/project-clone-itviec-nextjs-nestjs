@@ -84,7 +84,6 @@ const JobByCompany = (props: IProps) => {
                 <Col span={24} md={24} key={item.id}>
                   <Card
                     style={{
-                      minHeight: "150px",
                       boxShadow: "0px 6px 32px rgba(0, 0, 0, 0.08)",
                       background:
                         "linear-gradient(167deg, #f8f8f8 2.38%, #fff 70.43%)",
@@ -102,7 +101,10 @@ const JobByCompany = (props: IProps) => {
                       height={100}
                       style={{ width: "100%", height: "100%" }}
                     />
-                    <div className={styles["card-job-content"]}>
+                    <div
+                      className={styles["card-job-content"]}
+                      style={{ minHeight: "125px" }}
+                    >
                       <div className={styles["card-job-left"]}>
                         <Image
                           style={{ width: "50px", height: "50px" }}

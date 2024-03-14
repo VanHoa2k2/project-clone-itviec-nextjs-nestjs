@@ -35,6 +35,9 @@ export class User {
   address: string;
 
   @Column({ nullable: true })
+  avatar: string;
+
+  @Column({ nullable: true })
   urlCV: string;
 
   @ManyToOne(() => Company) // 1 company -> n hr

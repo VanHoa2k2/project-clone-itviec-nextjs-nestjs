@@ -44,6 +44,7 @@ interface IState {
     email: string;
     name: string;
     urlCV?: string;
+    avatar?: string;
     company?: {
       id: number | null;
       name: string;
@@ -73,6 +74,7 @@ const initialState: IState = {
     email: "",
     name: "",
     urlCV: "",
+    avatar: "",
     company: {
       id: null,
       name: "",
@@ -102,6 +104,8 @@ export const accountSlide = createSlice({
       state.user.id = action?.payload?.id;
       state.user.email = action.payload.email;
       state.user.name = action.payload.name;
+      state.user.urlCV = action.payload.urlCV;
+      state.user.avatar = action.payload.avatar;
       state.user.company = action?.payload?.company;
       state.user.role = action?.payload?.role;
       state.user.permissions = action?.payload?.permissions;
@@ -114,6 +118,7 @@ export const accountSlide = createSlice({
         email: "",
         name: "",
         urlCV: "",
+        avatar: "",
         company: {
           id: null,
           name: "",
@@ -149,6 +154,7 @@ export const accountSlide = createSlice({
         state.user.name = action.payload?.user?.name;
         state.user.company = action.payload?.user?.company;
         state.user.urlCV = action.payload?.user?.urlCV;
+        state.user.avatar = action.payload?.user?.avatar;
         state.user.role = action?.payload?.user?.role;
         state.user.permissions = action?.payload?.user?.permissions;
       }

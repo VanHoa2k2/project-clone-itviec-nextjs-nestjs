@@ -17,7 +17,7 @@ import styles from "@/styles/client.module.scss";
 // import { isMobile } from "react-device-detect";
 import { FaReact } from "react-icons/fa";
 import { useAppDispatch, useAppSelector } from "@/app/redux/hooks";
-import { callLogout } from "@/config/api";
+import { callFetchUserById, callLogout } from "@/config/api";
 import { setLogoutAction } from "@/app/redux/slice/accountSlide";
 import ManageAccount from "./modal/manage.account";
 import { usePathname } from "next/navigation";
@@ -28,6 +28,10 @@ import Image from "next/image";
 import ISearchJobContext, {
   searchJobContext,
 } from "@/contextAPI/searchJobContext";
+import { IUser } from "@/types/backend";
+import IUserInfoContext, {
+  userInfoContext,
+} from "@/contextAPI/userInfoContext";
 
 const Header = (props: any) => {
   const route = useRouter();
@@ -36,8 +40,8 @@ const Header = (props: any) => {
   const isAuthenticated = useAppSelector(
     (state) => state?.account?.isAuthenticated
   );
-  const user = useAppSelector((state) => state?.account?.user);
-
+  const userContext: IUserInfoContext = useContext(userInfoContext);
+  const { userInfo } = userContext;
   const [openMobileMenu, setOpenMobileMenu] = useState<boolean>(false);
 
   const [current, setCurrent] = useState("home");
@@ -153,14 +157,35 @@ const Header = (props: any) => {
               </ConfigProvider>
               <div className={styles["extra"]}>
                 {isAuthenticated === false ? (
-                  <Link href={"/login"}>Đăng Nhập</Link>
+                  <Link style={{ fontSize: "18px" }} href={"/login"}>
+                    Đăng nhập
+                  </Link>
                 ) : (
                   <Dropdown menu={{ items: itemsDropdown }} trigger={["click"]}>
                     <Space style={{ cursor: "pointer" }}>
-                      <span>Welcome {user?.name}</span>
-                      <Avatar>
-                        {" "}
-                        {user?.name?.substring(0, 2)?.toUpperCase()}{" "}
+                      <span style={{ fontSize: "16px" }}>
+                        Welcome {userInfo?.name}
+                      </span>
+                      <Avatar
+                        size={36}
+                        style={{ border: "1px solid #ccc" }}
+                        src={
+                          userInfo?.avatar && (
+                            <Image
+                              alt="avatar"
+                              width={100}
+                              height={100}
+                              style={{
+                                width: "100%",
+                                height: "100%",
+                              }}
+                              src={`${process.env.NEXT_PUBLIC_URL_BACKEND}/images/avatar/${userInfo?.avatar}`}
+                            />
+                          )
+                        }
+                      >
+                        {!userInfo?.avatar &&
+                          userInfo?.name?.substring(0, 1)?.toUpperCase()}{" "}
                       </Avatar>
                     </Space>
                   </Dropdown>

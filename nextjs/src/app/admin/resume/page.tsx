@@ -37,8 +37,6 @@ const ResumePage = () => {
   const [dataInit, setDataInit] = useState<IResume | null>(null);
   const [openViewDetail, setOpenViewDetail] = useState<boolean>(false);
   const user = useAppSelector((state) => state?.account?.user);
-  console.log(user);
-
   const handleDeleteResume = async (id: number | undefined) => {
     if (id) {
       const res = await callDeleteResume(id);
@@ -213,7 +211,6 @@ const ResumePage = () => {
           columns={columns}
           dataSource={resumes}
           request={async (params, sort, filter): Promise<any> => {
-            console.log(params);
             const query = buildQuery(params, sort, filter);
             dispatch(fetchResume({ query }));
           }}

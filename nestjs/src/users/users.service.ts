@@ -8,6 +8,7 @@ import { compareSync, genSaltSync, hashSync } from 'bcryptjs';
 import { IUser } from './user.interface';
 import aqp from 'api-query-params';
 import { Role } from 'src/roles/entities/role.entity';
+import { ConfigService } from '@nestjs/config';
 
 @Injectable()
 export class UsersService {
@@ -16,6 +17,7 @@ export class UsersService {
     private usersRepository: Repository<User>,
     @InjectRepository(Role)
     private rolesRepository: Repository<Role>,
+    private configService: ConfigService,
   ) {}
 
   getHashPassword = (password: string) => {
@@ -181,9 +183,8 @@ export class UsersService {
   }
 
   async update(updateUserDto: UpdateUserDto, user: IUser) {
-    const { id, name, email, address, age, gender, role, company } =
+    const { id, name, email, address, age, gender, role, company, avatar } =
       updateUserDto;
-
     return await this.usersRepository.update(
       { id },
       {
@@ -192,6 +193,10 @@ export class UsersService {
         age,
         gender,
         address,
+        avatar:
+          avatar === this.configService.get<string>('EMPTY_AVATAR')
+            ? null
+            : avatar,
         role: {
           id: role?.id,
         },

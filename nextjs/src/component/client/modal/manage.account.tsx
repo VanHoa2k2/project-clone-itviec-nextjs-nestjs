@@ -6,15 +6,12 @@ import type { TabsProps } from "antd";
 import WorkApply from "./account/work.apply";
 import JobByEmail from "./account/jobByEmail";
 import ManageResume from "./account/manage.resume";
+import UserUpdateInfo from "./account/update.info";
 
 interface IProps {
   open: boolean;
   onClose: (v: boolean) => void;
 }
-
-const UserUpdateInfo = (props: any) => {
-  return <div>{"//todo"}</div>;
-};
 
 const ManageAccount = (props: IProps) => {
   const { open, onClose } = props;
@@ -34,11 +31,11 @@ const ManageAccount = (props: IProps) => {
       label: `Việc làm đã ứng tuyển`,
       children: <WorkApply />,
     },
-    {
-      key: "email-by-skills",
-      label: `Nhận Jobs qua Email`,
-      children: <JobByEmail />,
-    },
+    // {
+    //   key: "email-by-skills",
+    //   label: `Nhận Jobs qua Email`,
+    //   children: <JobByEmail />,
+    // },
     {
       key: "user-update-info",
       label: `Cập nhật thông tin`,
@@ -47,7 +44,7 @@ const ManageAccount = (props: IProps) => {
     {
       key: "user-password",
       label: `Thay đổi mật khẩu`,
-      children: `//todo`,
+      children: `// Tính năng sẽ được ra mắt trong thời gian sắp tới`,
     },
   ];
 

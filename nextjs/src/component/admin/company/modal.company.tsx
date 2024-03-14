@@ -69,6 +69,7 @@ const ModalCompany = (props: IProps) => {
   const [previewTitle, setPreviewTitle] = useState("");
   const [value, setValue] = useState<string>("");
   const [form] = Form.useForm();
+
   useEffect(() => {
     if (dataInit?.id && dataInit?.description) {
       setValue(dataInit.description);

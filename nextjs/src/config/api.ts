@@ -11,7 +11,7 @@ import {
   IUser,
 } from "@/types/backend";
 import { Mutex } from "async-mutex";
-import { encode } from "punycode";
+import { revalidateTag } from "next/cache";
 
 const mutex = new Mutex();
 
@@ -274,6 +274,7 @@ export const callUpdateUser = async (user: IUser) => {
       },
     }
   );
+
   return (await res.json()) as IBackendRes<IUser>;
 };
 

@@ -14,6 +14,7 @@ export interface IUser {
   gender: string;
   address: string;
   urlCV?: string;
+  avatar?: string | null;
   role?: {
     id: number;
     name?: string;
@@ -37,6 +38,7 @@ export interface IAccount {
     email: string;
     name: string;
     urlCV: string;
+    avatar: string;
     company?: {
       id: number;
       name: string;

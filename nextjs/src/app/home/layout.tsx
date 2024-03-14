@@ -9,6 +9,7 @@ import styles from "@/styles/app.module.scss";
 import { ResumeProvider } from "@/contextAPI/resumeContext";
 import Footer from "@/component/client/footer.client";
 import { SearchJobProvider } from "@/contextAPI/searchJobContext";
+import { UserInfoProvider } from "@/contextAPI/userInfoContext";
 
 export default function DashboardLayout({
   children,
@@ -32,13 +33,15 @@ export default function DashboardLayout({
 
   return (
     <ResumeProvider>
-      <div className={styles["layout-app"]} ref={rootRef}>
-        <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-        <div className={styles["content-app"]}>
-          <SearchJobProvider>{children}</SearchJobProvider>
+      <UserInfoProvider>
+        <div className={styles["layout-app"]} ref={rootRef}>
+          <Header searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
+          <div className={styles["content-app"]}>
+            <SearchJobProvider>{children}</SearchJobProvider>
+          </div>
+          <Footer />
         </div>
-        <Footer />
-      </div>
+      </UserInfoProvider>
     </ResumeProvider>
   );
 }

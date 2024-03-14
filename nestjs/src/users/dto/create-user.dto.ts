@@ -39,16 +39,17 @@ export class CreateUserDto {
   @IsNotEmpty({ message: 'Address không được để trống' })
   address: string;
 
+  avatar: string;
+
   @IsNotEmpty({ message: 'Role không được để trống' })
   @IsObject()
   @ValidateNested()
   @Type(() => Role)
   role: Role;
 
-  @IsObject()
   @ValidateNested()
   @Type(() => Company)
-  company: Company;
+  company?: Company;
 }
 
 export class RegisterUserDto {

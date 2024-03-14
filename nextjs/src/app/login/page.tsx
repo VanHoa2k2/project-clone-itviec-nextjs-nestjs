@@ -17,6 +17,7 @@ const LoginPage = () => {
   const isAuthenticated = useAppSelector(
     (state) => state?.account?.isAuthenticated
   );
+  const user = useAppSelector((state) => state?.account?.user);
   const router = useRouter();
   // const callback = router.back() as string | undefined;
   // let params = new URLSearchParams(location.search);
@@ -24,10 +25,13 @@ const LoginPage = () => {
   useEffect(() => {
     //đã login => redirect to '/'
     if (isAuthenticated) {
-      // navigate('/');
-      window.location.href = "/";
+      if (user.role.name === "NORMAL_USER") {
+        router.push("/home");
+      } else {
+        router.push("/admin");
+      }
     }
-  }, []);
+  }, [user.role.name, isAuthenticated, router]);
 
   const onFinish = async (values: any) => {
     const { username, password } = values;
@@ -38,12 +42,6 @@ const LoginPage = () => {
       localStorage.setItem("access_token", res.data.access_token);
       dispatch(setUserLoginInfo(res.data.user));
       message.success("Đăng nhập tài khoản thành công!");
-      if (res?.data?.user?.role?.name != "ADMIN" || "SUPER_ADMIN") {
-        // console.log(res?.data?.user?.role?.name === "SUPER_ADMIN");
-        router.push("/home");
-      } else {
-        router.push("admin");
-      }
     } else {
       notification.error({
         message: "Có lỗi xảy ra",
@@ -88,7 +86,10 @@ const LoginPage = () => {
                 label="Mật khẩu"
                 name="password"
                 rules={[
-                  { required: true, message: "Mật khẩu không được để trống!" },
+                  {
+                    required: true,
+                    message: "Mật khẩu không được để trống!",
+                  },
                 ]}
               >
                 <Input.Password />
