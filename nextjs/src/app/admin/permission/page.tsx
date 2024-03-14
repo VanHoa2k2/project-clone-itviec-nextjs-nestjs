@@ -244,7 +244,13 @@ const PermissionPage = () => {
           toolBarRender={(_action, _rows): any => {
             return (
               <Button
-                icon={<PlusOutlined />}
+                icon={
+                  <PlusOutlined
+                    type="button"
+                    onPointerEnterCapture={() => {}}
+                    onPointerLeaveCapture={() => {}}
+                  />
+                }
                 type="primary"
                 onClick={() => setOpenModal(true)}
               >
