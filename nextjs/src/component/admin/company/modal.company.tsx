@@ -253,7 +253,13 @@ const ModalCompany = (props: IProps) => {
                 <FooterToolbar>{dom}</FooterToolbar>
               ),
               submitButtonProps: {
-                icon: <CheckSquareOutlined />,
+                icon: (
+                  <CheckSquareOutlined
+                    type="button"
+                    onPointerEnterCapture={() => {}}
+                    onPointerLeaveCapture={() => {}}
+                  />
+                ),
               },
               searchConfig: {
                 resetText: "Hủy",

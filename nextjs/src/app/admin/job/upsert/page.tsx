@@ -200,7 +200,13 @@ const ViewUpsertJob = (props: any) => {
                 <FooterToolbar>{dom}</FooterToolbar>
               ),
               submitButtonProps: {
-                icon: <CheckSquareOutlined />,
+                icon: (
+                  <CheckSquareOutlined
+                    type="button"
+                    onPointerEnterCapture={() => {}}
+                    onPointerLeaveCapture={() => {}}
+                  />
+                ),
               },
             }}
           >
