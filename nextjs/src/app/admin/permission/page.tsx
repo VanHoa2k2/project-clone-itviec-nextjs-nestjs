@@ -134,7 +134,9 @@ const PermissionPage = () => {
                 fontSize: 20,
                 color: "#ffa500",
               }}
-              type=""
+              type="button"
+              onPointerEnterCapture={() => {}}
+              onPointerLeaveCapture={() => {}}
               onClick={() => {
                 setOpenModal(true);
                 setDataInit(entity);
@@ -156,6 +158,9 @@ const PermissionPage = () => {
                     fontSize: 20,
                     color: "#ff4d4f",
                   }}
+                  type="button"
+                  onPointerEnterCapture={() => {}}
+                  onPointerLeaveCapture={() => {}}
                 />
               </span>
             </Popconfirm>

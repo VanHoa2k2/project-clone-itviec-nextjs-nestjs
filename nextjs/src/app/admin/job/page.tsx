@@ -146,7 +146,9 @@ const JobPage = () => {
                 fontSize: 20,
                 color: "#ffa500",
               }}
-              type=""
+              type="button"
+              onPointerEnterCapture={() => {}}
+              onPointerLeaveCapture={() => {}}
               onClick={() => {
                 router.push(`job/upsert?id=${entity.id}`);
               }}
@@ -167,6 +169,9 @@ const JobPage = () => {
                     fontSize: 20,
                     color: "#ff4d4f",
                   }}
+                  type="button"
+                  onPointerEnterCapture={() => {}}
+                  onPointerLeaveCapture={() => {}}
                 />
               </span>
             </Popconfirm>

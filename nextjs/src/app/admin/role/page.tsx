@@ -105,7 +105,9 @@ const RolePage = () => {
                 fontSize: 20,
                 color: "#ffa500",
               }}
-              type=""
+              type="button"
+              onPointerEnterCapture={() => {}}
+              onPointerLeaveCapture={() => {}}
               onClick={() => {
                 dispatch(fetchRoleById(entity.id as number));
                 setOpenModal(true);
@@ -127,6 +129,9 @@ const RolePage = () => {
                     fontSize: 20,
                     color: "#ff4d4f",
                   }}
+                  type="button"
+                  onPointerEnterCapture={() => {}}
+                  onPointerLeaveCapture={() => {}}
                 />
               </span>
             </Popconfirm>
