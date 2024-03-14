@@ -193,7 +193,15 @@ const ApplyModal = (props: IProps) => {
                               ]}
                             >
                               <Upload {...propsUpload}>
-                                <Button icon={<UploadOutlined />}>
+                                <Button
+                                  icon={
+                                    <UploadOutlined
+                                      type="button"
+                                      onPointerEnterCapture={() => {}}
+                                      onPointerLeaveCapture={() => {}}
+                                    />
+                                  }
+                                >
                                   Tải lên CV của bạn ( Hỗ trợ *.doc, *.docx,
                                   *.pdf, and &lt; 5MB )
                                 </Button>

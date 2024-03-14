@@ -320,7 +320,19 @@ const ModalCompany = (props: IProps) => {
                       }
                     >
                       <div>
-                        {loadingUpload ? <LoadingOutlined /> : <PlusOutlined />}
+                        {loadingUpload ? (
+                          <LoadingOutlined
+                            type="button"
+                            onPointerEnterCapture={() => {}}
+                            onPointerLeaveCapture={() => {}}
+                          />
+                        ) : (
+                          <PlusOutlined
+                            type="button"
+                            onPointerEnterCapture={() => {}}
+                            onPointerLeaveCapture={() => {}}
+                          />
+                        )}
                         <div style={{ marginTop: 8 }}>Upload</div>
                       </div>
                     </Upload>

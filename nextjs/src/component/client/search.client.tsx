@@ -1,9 +1,5 @@
 import { Button, Col, Form, Input, Row, Select } from "antd";
-import {
-  EnvironmentOutlined,
-  MonitorOutlined,
-  SearchOutlined,
-} from "@ant-design/icons";
+import { EnvironmentOutlined, SearchOutlined } from "@ant-design/icons";
 import { LOCATION_LIST, SKILLS_LIST } from "@/config/utils";
 import { ProForm } from "@ant-design/pro-components";
 import { useAppDispatch, useAppSelector } from "@/app/redux/hooks";
@@ -97,7 +93,12 @@ const SearchClient = (props: any) => {
                   style={{ width: "100%", height: "40px", fontSize: "20px" }}
                   placeholder={
                     <>
-                      <EnvironmentOutlined /> Địa điểm...
+                      <EnvironmentOutlined
+                        type="button"
+                        onPointerEnterCapture={() => {}}
+                        onPointerLeaveCapture={() => {}}
+                      />{" "}
+                      Địa điểm...
                     </>
                   }
                   defaultValue={location && location}
@@ -109,7 +110,13 @@ const SearchClient = (props: any) => {
             <Col span={12} md={4}>
               <Button
                 style={{ height: "40px", fontSize: "18px" }}
-                icon={<SearchOutlined />}
+                icon={
+                  <SearchOutlined
+                    type="button"
+                    onPointerEnterCapture={() => {}}
+                    onPointerLeaveCapture={() => {}}
+                  />
+                }
                 type="primary"
                 onClick={() => form.submit()}
               >

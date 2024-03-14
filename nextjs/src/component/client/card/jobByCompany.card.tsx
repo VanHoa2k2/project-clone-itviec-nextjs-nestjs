@@ -117,11 +117,21 @@ const JobByCompany = (props: IProps) => {
                       <div className={styles["card-job-right"]}>
                         <div className={styles["job-title"]}>{item.name}</div>
                         <div className={styles["job-location"]}>
-                          <EnvironmentOutlined style={{ color: "#58aaab" }} />
+                          <EnvironmentOutlined
+                            style={{ color: "#58aaab" }}
+                            type="button"
+                            onPointerEnterCapture={() => {}}
+                            onPointerLeaveCapture={() => {}}
+                          />
                           &nbsp;{getLocationName(item.location)}
                         </div>
                         <div>
-                          <ThunderboltOutlined style={{ color: "orange" }} />
+                          <ThunderboltOutlined
+                            style={{ color: "orange" }}
+                            type="button"
+                            onPointerEnterCapture={() => {}}
+                            onPointerLeaveCapture={() => {}}
+                          />
                           &nbsp;
                           {(item.salary + "")?.replace(
                             /\B(?=(\d{3})+(?!\d))/g,

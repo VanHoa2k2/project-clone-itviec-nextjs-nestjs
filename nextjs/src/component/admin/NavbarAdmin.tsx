@@ -76,14 +76,26 @@ const NavbarAdmin = (props: NavbarAdminProps) => {
         {
           label: <Link href="/admin">Dashboard</Link>,
           key: "/admin",
-          icon: <AppstoreOutlined />,
+          icon: (
+            <AppstoreOutlined
+              type="button"
+              onPointerEnterCapture={() => {}}
+              onPointerLeaveCapture={() => {}}
+            />
+          ),
         },
         ...(viewCompany
           ? [
               {
                 label: <Link href="/admin/company">Company</Link>,
                 key: "/admin/company",
-                icon: <BankOutlined />,
+                icon: (
+                  <BankOutlined
+                    type="button"
+                    onPointerEnterCapture={() => {}}
+                    onPointerLeaveCapture={() => {}}
+                  />
+                ),
               },
             ]
           : []),
@@ -93,7 +105,13 @@ const NavbarAdmin = (props: NavbarAdminProps) => {
               {
                 label: <Link href="/admin/user">User</Link>,
                 key: "/admin/user",
-                icon: <UserOutlined />,
+                icon: (
+                  <UserOutlined
+                    type="button"
+                    onPointerEnterCapture={() => {}}
+                    onPointerLeaveCapture={() => {}}
+                  />
+                ),
               },
             ]
           : []),
@@ -102,7 +120,13 @@ const NavbarAdmin = (props: NavbarAdminProps) => {
               {
                 label: <Link href="/admin/job">Job</Link>,
                 key: "/admin/job",
-                icon: <ScheduleOutlined />,
+                icon: (
+                  <ScheduleOutlined
+                    type="button"
+                    onPointerEnterCapture={() => {}}
+                    onPointerLeaveCapture={() => {}}
+                  />
+                ),
               },
             ]
           : []),
@@ -112,7 +136,13 @@ const NavbarAdmin = (props: NavbarAdminProps) => {
               {
                 label: <Link href="/admin/resume">Resume</Link>,
                 key: "/admin/resume",
-                icon: <AliwangwangOutlined />,
+                icon: (
+                  <AliwangwangOutlined
+                    type="button"
+                    onPointerEnterCapture={() => {}}
+                    onPointerLeaveCapture={() => {}}
+                  />
+                ),
               },
             ]
           : []),
@@ -121,7 +151,13 @@ const NavbarAdmin = (props: NavbarAdminProps) => {
               {
                 label: <Link href="/admin/permission">Permission</Link>,
                 key: "/admin/permission",
-                icon: <ApiOutlined />,
+                icon: (
+                  <ApiOutlined
+                    type="button"
+                    onPointerEnterCapture={() => {}}
+                    onPointerLeaveCapture={() => {}}
+                  />
+                ),
               },
             ]
           : []),
@@ -130,7 +166,13 @@ const NavbarAdmin = (props: NavbarAdminProps) => {
               {
                 label: <Link href="/admin/role">Role</Link>,
                 key: "/admin/role",
-                icon: <ExceptionOutlined />,
+                icon: (
+                  <ExceptionOutlined
+                    type="button"
+                    onPointerEnterCapture={() => {}}
+                    onPointerLeaveCapture={() => {}}
+                  />
+                ),
               },
             ]
           : []),
@@ -152,7 +194,12 @@ const NavbarAdmin = (props: NavbarAdminProps) => {
         onCollapse={(value) => setCollapsed(value)}
       >
         <div style={{ height: 32, margin: 16, textAlign: "center" }}>
-          <BugOutlined /> ADMIN
+          <BugOutlined
+            type="button"
+            onPointerEnterCapture={() => {}}
+            onPointerLeaveCapture={() => {}}
+          />{" "}
+          ADMIN
         </div>
         <Menu
           selectedKeys={[activeMenu]}

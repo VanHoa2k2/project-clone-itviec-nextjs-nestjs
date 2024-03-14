@@ -133,7 +133,12 @@ const JobSuggestCard = (props: IProps) => {
                       <div className={styles["card-job-right"]}>
                         <div className={styles["job-title"]}>{item.name}</div>
                         <div className={styles["job-location"]}>
-                          <EnvironmentOutlined style={{ color: "#58aaab" }} />
+                          <EnvironmentOutlined
+                            style={{ color: "#58aaab" }}
+                            type="button"
+                            onPointerEnterCapture={() => {}}
+                            onPointerLeaveCapture={() => {}}
+                          />
                           &nbsp;{getLocationName(item.location)}
                         </div>
                         <div>

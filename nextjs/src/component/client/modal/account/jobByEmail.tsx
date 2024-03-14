@@ -56,7 +56,12 @@ const JobByEmail = (props: any) => {
                 style={{ width: "100%" }}
                 placeholder={
                   <>
-                    <MonitorOutlined /> Tìm theo kỹ năng...
+                    <MonitorOutlined
+                      type="button"
+                      onPointerEnterCapture={() => {}}
+                      onPointerLeaveCapture={() => {}}
+                    />{" "}
+                    Tìm theo kỹ năng...
                   </>
                 }
                 optionLabelProp="label"

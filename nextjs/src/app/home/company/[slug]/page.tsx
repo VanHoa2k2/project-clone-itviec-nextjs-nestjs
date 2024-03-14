@@ -57,7 +57,12 @@ const ClientCompanyDetailPage = (props: any) => {
                       </div>
 
                       <div className={styles["location"]}>
-                        <EnvironmentOutlined style={{ color: "#58aaab" }} />
+                        <EnvironmentOutlined
+                          style={{ color: "#58aaab" }}
+                          type="button"
+                          onPointerEnterCapture={() => {}}
+                          onPointerLeaveCapture={() => {}}
+                        />
                         &nbsp;{companyDetail?.address}
                       </div>
                     </div>

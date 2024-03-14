@@ -87,7 +87,11 @@ const ManageResume = () => {
             {!resume.currentCV ? (
               <Dragger {...propsUpload}>
                 <p className="ant-upload-drag-icon">
-                  <CloudUploadOutlined />
+                  <CloudUploadOutlined
+                    type="button"
+                    onPointerEnterCapture={() => {}}
+                    onPointerLeaveCapture={() => {}}
+                  />
                 </p>
                 <p className="ant-upload-text">
                   Kéo CV của bạn vào đây hoặc bấm để chọn CV của bạn
@@ -102,7 +106,11 @@ const ManageResume = () => {
                 <Row justify="space-around">
                   <Col span={3}>
                     <div className={`${styles["icon-resume"]}`}>
-                      <SolutionOutlined />
+                      <SolutionOutlined
+                        type="button"
+                        onPointerEnterCapture={() => {}}
+                        onPointerLeaveCapture={() => {}}
+                      />
                     </div>
                   </Col>
                   <Col span={21}>
@@ -115,7 +123,17 @@ const ManageResume = () => {
                     </a>
                     <div className={`${styles["upload-cv"]}`}>
                       <Upload {...propsUpload}>
-                        <Button icon={<UploadOutlined />}>Tải CV mới</Button>
+                        <Button
+                          icon={
+                            <UploadOutlined
+                              type="button"
+                              onPointerEnterCapture={() => {}}
+                              onPointerLeaveCapture={() => {}}
+                            />
+                          }
+                        >
+                          Tải CV mới
+                        </Button>
                       </Upload>
                       <p className="ant-upload-text">
                         (Sử dụng tệp .doc, .docx hoặc .pdf, không chứa mật khẩu

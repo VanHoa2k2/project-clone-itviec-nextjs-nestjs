@@ -57,17 +57,35 @@ const Header = (props: any) => {
     {
       label: <Link href={"/home"}>Trang Chủ</Link>,
       key: "/home",
-      icon: <TwitterOutlined />,
+      icon: (
+        <TwitterOutlined
+          type="button"
+          onPointerEnterCapture={() => {}}
+          onPointerLeaveCapture={() => {}}
+        />
+      ),
     },
     {
       label: <Link href={"/home/job"}>Việc Làm IT</Link>,
       key: "/home/job",
-      icon: <CodeOutlined />,
+      icon: (
+        <CodeOutlined
+          type="button"
+          onPointerEnterCapture={() => {}}
+          onPointerLeaveCapture={() => {}}
+        />
+      ),
     },
     {
       label: <Link href={"/home/company"}>Công ty IT</Link>,
       key: "/home/company",
-      icon: <RiseOutlined />,
+      icon: (
+        <RiseOutlined
+          type="button"
+          onPointerEnterCapture={() => {}}
+          onPointerLeaveCapture={() => {}}
+        />
+      ),
     },
   ];
 
@@ -95,12 +113,24 @@ const Header = (props: any) => {
         </label>
       ),
       key: "manage-account",
-      icon: <ContactsOutlined />,
+      icon: (
+        <ContactsOutlined
+          type="button"
+          onPointerEnterCapture={() => {}}
+          onPointerLeaveCapture={() => {}}
+        />
+      ),
     },
     {
       label: <Link href={"/admin"}>Trang Quản Trị</Link>,
       key: "admin",
-      icon: <DashOutlined />,
+      icon: (
+        <DashOutlined
+          type="button"
+          onPointerEnterCapture={() => {}}
+          onPointerLeaveCapture={() => {}}
+        />
+      ),
     },
     {
       label: (
@@ -109,7 +139,13 @@ const Header = (props: any) => {
         </label>
       ),
       key: "logout",
-      icon: <LogoutOutlined />,
+      icon: (
+        <LogoutOutlined
+          type="button"
+          onPointerEnterCapture={() => {}}
+          onPointerLeaveCapture={() => {}}
+        />
+      ),
     },
   ];
 

@@ -91,7 +91,12 @@ const ClientJobDetailPage = (props: any) => {
                     </span>
                   </div>
                   <div className={styles["location"]}>
-                    <EnvironmentOutlined style={{ color: "#58aaab" }} />
+                    <EnvironmentOutlined
+                      style={{ color: "#58aaab" }}
+                      type="button"
+                      onPointerEnterCapture={() => {}}
+                      onPointerLeaveCapture={() => {}}
+                    />
                     &nbsp;{getLocationName(jobDetail.location)}
                   </div>
                   <div>
