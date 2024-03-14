@@ -163,7 +163,12 @@ const JobCard = (props: IProps) => {
                           &nbsp;{getLocationName(item.location)}
                         </div>
                         <div>
-                          <ThunderboltOutlined style={{ color: "orange" }} />
+                          <ThunderboltOutlined
+                            style={{ color: "orange" }}
+                            type="button"
+                            onPointerEnterCapture={() => {}}
+                            onPointerLeaveCapture={() => {}}
+                          />
                           &nbsp;
                           {(item.salary + "")?.replace(
                             /\B(?=(\d{3})+(?!\d))/g,
