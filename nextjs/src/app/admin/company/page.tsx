@@ -213,7 +213,13 @@ const CompanyPage = () => {
                 hideChildren
               >
                 <Button
-                  icon={<PlusOutlined />}
+                  icon={
+                    <PlusOutlined
+                      type="button"
+                      onPointerEnterCapture={() => {}}
+                      onPointerLeaveCapture={() => {}}
+                    />
+                  }
                   type="primary"
                   onClick={() => setOpenModal(true)}
                 >
