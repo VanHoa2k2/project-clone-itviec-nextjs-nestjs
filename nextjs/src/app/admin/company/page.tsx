@@ -131,6 +131,9 @@ const CompanyPage = () => {
                     fontSize: "20px",
                     color: "#ff4d4f",
                   }}
+                  type="button"
+                  onPointerEnterCapture={() => {}}
+                  onPointerLeaveCapture={() => {}}
                 />
               </span>
             </Popconfirm>
