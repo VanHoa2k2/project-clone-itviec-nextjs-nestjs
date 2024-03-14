@@ -104,7 +104,12 @@ const ClientJobDetailPage = (props: any) => {
                     &nbsp;{getLocationName(jobDetail.location)}
                   </div>
                   <div>
-                    <HistoryOutlined /> {dayjs(jobDetail.updatedAt).fromNow()}
+                    <HistoryOutlined
+                      type="button"
+                      onPointerEnterCapture={() => {}}
+                      onPointerLeaveCapture={() => {}}
+                    />{" "}
+                    {dayjs(jobDetail.updatedAt).fromNow()}
                   </div>
                   <Divider />
                   {parse(jobDetail.description)}
