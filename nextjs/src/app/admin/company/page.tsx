@@ -104,7 +104,7 @@ const CompanyPage = () => {
           <Access permission={ALL_PERMISSIONS.COMPANIES.UPDATE} hideChildren>
             <EditOutlined
               style={{
-                fontSize: 20,
+                fontSize: "20px",
                 color: "#ffa500",
               }}
               type=""
@@ -126,7 +126,7 @@ const CompanyPage = () => {
               <span style={{ cursor: "pointer", margin: "0 10px" }}>
                 <DeleteOutlined
                   style={{
-                    fontSize: 20,
+                    fontSize: "20px",
                     color: "#ff4d4f",
                   }}
                 />
