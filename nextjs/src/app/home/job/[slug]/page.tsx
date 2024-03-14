@@ -80,7 +80,11 @@ const ClientJobDetailPage = (props: any) => {
                     })}
                   </div>
                   <div className={styles["salary"]}>
-                    <DollarOutlined />
+                    <DollarOutlined
+                      type="button"
+                      onPointerEnterCapture={() => {}}
+                      onPointerLeaveCapture={() => {}}
+                    />
                     <span>
                       &nbsp;
                       {(jobDetail.salary + "")?.replace(
