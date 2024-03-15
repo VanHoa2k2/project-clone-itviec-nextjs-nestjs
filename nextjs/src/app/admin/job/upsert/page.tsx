@@ -30,8 +30,8 @@ import {
   callFetchJobById,
   callUpdateJob,
 } from "@/config/api";
-import ReactQuill from "react-quill";
-import "react-quill/dist/quill.snow.css";
+// import ReactQuill from "react-quill";
+// import "react-quill/dist/quill.snow.css";
 import { CheckSquareOutlined } from "@ant-design/icons";
 import enUS from "antd/lib/locale/en_US";
 import dayjs from "dayjs";
@@ -57,6 +57,13 @@ const ViewUpsertJob = (props: any) => {
   useEffect(() => {
     setCanUseDOM(typeof document !== "undefined");
   }, []);
+
+  // Chỉ import ReactQuill khi đang chạy trong môi trường trình duyệt
+  let ReactQuill;
+  if (canUseDOM) {
+    ReactQuill = require("react-quill");
+    require("react-quill/dist/quill.snow.css");
+  }
 
   useEffect(() => {
     const init = async () => {
@@ -371,7 +378,7 @@ const ViewUpsertJob = (props: any) => {
                 />
               </Col>
               <Col span={24}>
-                {canUseDOM && (
+                {canUseDOM && ReactQuill && (
                   <ProForm.Item
                     name="description"
                     label="Miêu tả job"
