@@ -50,6 +50,14 @@ const ViewUpsertJob = (props: any) => {
   const [dataUpdate, setDataUpdate] = useState<IJob | null>(null);
   const [form] = Form.useForm();
 
+  // Sử dụng state để theo dõi việc có thể sử dụng `document` hay không
+  const [canUseDOM, setCanUseDOM] = useState(false);
+
+  // Sử dụng hook useEffect để thiết lập giá trị cho `canUseDOM`
+  useEffect(() => {
+    setCanUseDOM(typeof document !== "undefined");
+  }, []);
+
   useEffect(() => {
     const init = async () => {
       if (id) {
@@ -363,21 +371,23 @@ const ViewUpsertJob = (props: any) => {
                 />
               </Col>
               <Col span={24}>
-                <ProForm.Item
-                  name="description"
-                  label="Miêu tả job"
-                  rules={[
-                    { required: true, message: "Vui lòng nhập miêu tả job!" },
-                  ]}
-                  className={styles["set-height-proFormItem"]}
-                >
-                  <ReactQuill
-                    className={styles["set-height-quill"]}
-                    theme="snow"
-                    value={value}
-                    onChange={setValue}
-                  />
-                </ProForm.Item>
+                {canUseDOM && (
+                  <ProForm.Item
+                    name="description"
+                    label="Miêu tả job"
+                    rules={[
+                      { required: true, message: "Vui lòng nhập miêu tả job!" },
+                    ]}
+                    className={styles["set-height-proFormItem"]}
+                  >
+                    <ReactQuill
+                      className={styles["set-height-quill"]}
+                      theme="snow"
+                      value={value}
+                      onChange={setValue}
+                    />
+                  </ProForm.Item>
+                )}
               </Col>
             </Row>
             <Divider />
