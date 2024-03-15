@@ -112,8 +112,8 @@ const CompanyPage = () => {
                 setOpenModal(true);
                 setDataInit(entity);
               }}
-              onPointerEnterCapture={() => {}}
-              onPointerLeaveCapture={() => {}}
+              onMouseEnter={() => {}}
+              onMouseLeave={() => {}}
             />
           </Access>
           <Access permission={ALL_PERMISSIONS.COMPANIES.DELETE} hideChildren>
