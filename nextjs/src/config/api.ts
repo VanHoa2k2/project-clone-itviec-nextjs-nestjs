@@ -21,7 +21,7 @@ interface AccessTokenResponse {
 
 export const callRegister = async (data: IUser) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/auth/register`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/auth/register`,
     {
       method: "POST",
       body: JSON.stringify({
@@ -42,7 +42,7 @@ export const callRegister = async (data: IUser) => {
 
 export const callLogin = async (username: string, password: string) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/auth/login`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/auth/login`,
     {
       method: "POST",
       body: JSON.stringify({
@@ -61,7 +61,7 @@ export const callLogin = async (username: string, password: string) => {
 
 export const callFetchAccount = async () => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/auth/account`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/auth/account`,
     {
       method: "GET",
       headers: {
@@ -79,7 +79,7 @@ export const handleRefreshToken =
     return await mutex.runExclusive(async () => {
       try {
         const res = await fetch(
-          `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/auth/refresh`,
+          `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/auth/refresh`,
           {
             method: "GET",
             headers: {
@@ -100,7 +100,7 @@ export const handleRefreshToken =
 
 export const callLogout = async () => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/auth/logout`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/auth/logout`,
     {
       method: "POST",
       headers: {
@@ -117,7 +117,7 @@ export const callLogout = async () => {
 
 export const callFetchCompany = async (query: string) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/companies?${query}`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/companies?${query}`,
     {
       method: "GET",
       headers: {
@@ -132,7 +132,7 @@ export const callFetchCompany = async (query: string) => {
 
 export const callFetchCompanyById = async (id: number) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/companies/${id}`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/companies/${id}`,
     {
       method: "GET",
       headers: {
@@ -152,7 +152,7 @@ export const callCreateCompany = async (
   logo: string
 ) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/companies`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/companies`,
     {
       method: "POST",
       body: JSON.stringify({
@@ -179,7 +179,7 @@ export const callUpdateCompany = async (
   logo: string
 ) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/companies/${id}`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/companies/${id}`,
     {
       method: "PATCH",
       body: JSON.stringify({
@@ -201,7 +201,7 @@ export const callUpdateCompany = async (
 
 export const callDeleteCompany = async (id: number) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/companies/${id}`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/companies/${id}`,
     {
       method: "DELETE",
       headers: {
@@ -217,7 +217,7 @@ export const callDeleteCompany = async (id: number) => {
 // module user
 export const callFetchUser = async (query: string) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/users?${query}`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/users?${query}`,
     {
       method: "GET",
       headers: {
@@ -232,7 +232,7 @@ export const callFetchUser = async (query: string) => {
 
 export const callFetchUserById = async (id: number | null) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/users/${id}`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/users/${id}`,
     {
       method: "GET",
       headers: {
@@ -247,7 +247,7 @@ export const callFetchUserById = async (id: number | null) => {
 
 export const callCreateUser = async (user: IUser) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/users`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/users`,
     {
       method: "POST",
       body: JSON.stringify(user),
@@ -263,7 +263,7 @@ export const callCreateUser = async (user: IUser) => {
 
 export const callUpdateUser = async (user: IUser) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/users`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/users`,
     {
       method: "PATCH",
       body: JSON.stringify(user),
@@ -280,7 +280,7 @@ export const callUpdateUser = async (user: IUser) => {
 
 export const callUpdateCVByUser = async (urlCV: string) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/users/upload-cv`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/users/upload-cv`,
     {
       method: "PATCH",
       body: JSON.stringify({ urlCV }),
@@ -296,7 +296,7 @@ export const callUpdateCVByUser = async (urlCV: string) => {
 
 export const callDeleteUser = async (id: number) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/users/${id}`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/users/${id}`,
     {
       method: "DELETE",
       headers: {
@@ -315,7 +315,7 @@ export const callUploadSingleFile = async (file: any, folderType: string) => {
   bodyFormData.append("fileUpload", file);
 
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/files/upload`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/files/upload`,
     {
       method: "POST",
       body: bodyFormData,
@@ -329,24 +329,21 @@ export const callUploadSingleFile = async (file: any, folderType: string) => {
 
 // module job
 export const callCreateJob = async (job: IJob) => {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/jobs`,
-    {
-      method: "POST",
-      body: JSON.stringify(job),
-      headers: {
-        Authorization: "Bearer " + window.localStorage.getItem("access_token"),
-        "Content-Type": "application/json",
-        // 'Content-Type': 'application/x-www-form-urlencoded',
-      },
-    }
-  );
+  const res = await fetch(`${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/jobs`, {
+    method: "POST",
+    body: JSON.stringify(job),
+    headers: {
+      Authorization: "Bearer " + window.localStorage.getItem("access_token"),
+      "Content-Type": "application/json",
+      // 'Content-Type': 'application/x-www-form-urlencoded',
+    },
+  });
   return (await res.json()) as IBackendRes<IJob>;
 };
 
 export const callFetchJobById = async (id: string) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/jobs/${id}`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/jobs/${id}`,
     {
       method: "GET",
 
@@ -362,7 +359,7 @@ export const callFetchJobById = async (id: string) => {
 
 export const callUpdateJob = async (job: IJob, id: number) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/jobs/${id}`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/jobs/${id}`,
     {
       method: "PATCH",
       body: JSON.stringify(job),
@@ -378,7 +375,7 @@ export const callUpdateJob = async (job: IJob, id: number) => {
 
 export const callFetchJob = async (query: string) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/jobs?${query}`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/jobs?${query}`,
     {
       method: "GET",
       headers: {
@@ -393,7 +390,7 @@ export const callFetchJob = async (query: string) => {
 
 export const callDeleteJob = async (id: number) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/jobs/${id}`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/jobs/${id}`,
     {
       method: "DELETE",
       headers: {
@@ -411,7 +408,7 @@ export const callGetJobsSuggestByCv = async (
   fileName: string | undefined
 ) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/jobs/jobs-suggest?${query}`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/jobs/jobs-suggest?${query}`,
     {
       method: "POST",
       body: JSON.stringify({ fileName }),
@@ -433,7 +430,7 @@ export const callCreateResume = async (
   jobId: any
 ) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/resumes`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/resumes`,
     {
       method: "POST",
       body: JSON.stringify({
@@ -453,7 +450,7 @@ export const callCreateResume = async (
 
 export const UploadCVByUser = async (url: string) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/resumes/upload-cv`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/resumes/upload-cv`,
     {
       method: "POST",
       body: JSON.stringify({
@@ -471,7 +468,7 @@ export const UploadCVByUser = async (url: string) => {
 
 export const callFetchResume = async (query: string) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/resumes?${query}`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/resumes?${query}`,
     {
       method: "GET",
       headers: {
@@ -486,7 +483,7 @@ export const callFetchResume = async (query: string) => {
 
 export const callFetchResumeByUser = async () => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/resumes/by-user`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/resumes/by-user`,
     {
       method: "POST",
       headers: {
@@ -501,7 +498,7 @@ export const callFetchResumeByUser = async () => {
 
 export const callUpdateResumeStatus = async (id: number, status: string) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/resumes/${id}`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/resumes/${id}`,
     {
       method: "PATCH",
       body: JSON.stringify({ status }),
@@ -517,7 +514,7 @@ export const callUpdateResumeStatus = async (id: number, status: string) => {
 
 export const callDeleteResume = async (id: number) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/resumes/${id}`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/resumes/${id}`,
     {
       method: "DELETE",
       headers: {
@@ -534,7 +531,7 @@ export const callDeleteResume = async (id: number) => {
 
 export const callCreatePermission = async (permission: IPermission) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/permissions`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/permissions`,
     {
       method: "POST",
       body: JSON.stringify(permission),
@@ -550,7 +547,7 @@ export const callCreatePermission = async (permission: IPermission) => {
 
 export const callFetchPermission = async (query: string) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/permissions?${query}`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/permissions?${query}`,
     {
       method: "GET",
       headers: {
@@ -568,7 +565,7 @@ export const callUpdatePermission = async (
   id: number
 ) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/permissions/${id}`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/permissions/${id}`,
     {
       method: "PATCH",
       body: JSON.stringify(permission),
@@ -584,7 +581,7 @@ export const callUpdatePermission = async (
 
 export const callDeletePermission = async (id: number) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/permissions/${id}`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/permissions/${id}`,
     {
       method: "DELETE",
       headers: {
@@ -601,7 +598,7 @@ export const callDeletePermission = async (id: number) => {
 
 export const callCreateRole = async (role: IRole) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/roles`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/roles`,
     {
       method: "POST",
       body: JSON.stringify(role),
@@ -617,7 +614,7 @@ export const callCreateRole = async (role: IRole) => {
 
 export const callFetchRole = async (query: string) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/roles?${query}`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/roles?${query}`,
     {
       method: "GET",
       headers: {
@@ -632,7 +629,7 @@ export const callFetchRole = async (query: string) => {
 
 export const callFetchRoleById = async (id: number) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/roles/${id}`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/roles/${id}`,
     {
       method: "GET",
 
@@ -648,7 +645,7 @@ export const callFetchRoleById = async (id: number) => {
 
 export const callUpdateRole = async (role: IRole, id: number) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/roles/${id}`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/roles/${id}`,
     {
       method: "PATCH",
       body: JSON.stringify(role),
@@ -664,7 +661,7 @@ export const callUpdateRole = async (role: IRole, id: number) => {
 
 export const callDeleteRole = async (id: number) => {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/roles/${id}`,
+    `${process.env.NEXT_PUBLIC_URL_BACKEND}api/v1/roles/${id}`,
     {
       method: "DELETE",
       headers: {
