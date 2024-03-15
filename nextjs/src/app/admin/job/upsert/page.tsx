@@ -203,8 +203,8 @@ const ViewUpsertJob = (props: any) => {
                 icon: (
                   <CheckSquareOutlined
                     type="button"
-                    onPointerEnterCapture={() => {}}
-                    onPointerLeaveCapture={() => {}}
+                    onMouseEnter={() => {}}
+                    onMouseLeave={() => {}}
                   />
                 ),
               },

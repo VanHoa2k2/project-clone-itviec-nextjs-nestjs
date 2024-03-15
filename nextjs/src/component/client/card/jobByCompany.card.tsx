@@ -120,8 +120,8 @@ const JobByCompany = (props: IProps) => {
                           <EnvironmentOutlined
                             style={{ color: "#58aaab" }}
                             type="button"
-                            onPointerEnterCapture={() => {}}
-                            onPointerLeaveCapture={() => {}}
+                            onMouseEnter={() => {}}
+                            onMouseLeave={() => {}}
                           />
                           &nbsp;{getLocationName(item.location)}
                         </div>
@@ -129,8 +129,8 @@ const JobByCompany = (props: IProps) => {
                           <ThunderboltOutlined
                             style={{ color: "orange" }}
                             type="button"
-                            onPointerEnterCapture={() => {}}
-                            onPointerLeaveCapture={() => {}}
+                            onMouseEnter={() => {}}
+                            onMouseLeave={() => {}}
                           />
                           &nbsp;
                           {(item.salary + "")?.replace(

@@ -132,8 +132,8 @@ const CompanyPage = () => {
                     color: "#ff4d4f",
                   }}
                   type="button"
-                  onPointerEnterCapture={() => {}}
-                  onPointerLeaveCapture={() => {}}
+                  onMouseEnter={() => {}}
+                  onMouseLeave={() => {}}
                 />
               </span>
             </Popconfirm>
@@ -216,8 +216,8 @@ const CompanyPage = () => {
                   icon={
                     <PlusOutlined
                       type="button"
-                      onPointerEnterCapture={() => {}}
-                      onPointerLeaveCapture={() => {}}
+                      onMouseEnter={() => {}}
+                      onMouseLeave={() => {}}
                     />
                   }
                   type="primary"

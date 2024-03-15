@@ -130,8 +130,8 @@ const RolePage = () => {
                     color: "#ff4d4f",
                   }}
                   type="button"
-                  onPointerEnterCapture={() => {}}
-                  onPointerLeaveCapture={() => {}}
+                  onMouseEnter={() => {}}
+                  onMouseLeave={() => {}}
                 />
               </span>
             </Popconfirm>
@@ -206,8 +206,8 @@ const RolePage = () => {
                 icon={
                   <PlusOutlined
                     type="button"
-                    onPointerEnterCapture={() => {}}
-                    onPointerLeaveCapture={() => {}}
+                    onMouseEnter={() => {}}
+                    onMouseLeave={() => {}}
                   />
                 }
                 type="primary"

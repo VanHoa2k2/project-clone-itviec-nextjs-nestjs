@@ -60,8 +60,8 @@ const ClientCompanyDetailPage = (props: any) => {
                         <EnvironmentOutlined
                           style={{ color: "#58aaab" }}
                           type="button"
-                          onPointerEnterCapture={() => {}}
-                          onPointerLeaveCapture={() => {}}
+                          onMouseEnter={() => {}}
+                          onMouseLeave={() => {}}
                         />
                         &nbsp;{companyDetail?.address}
                       </div>

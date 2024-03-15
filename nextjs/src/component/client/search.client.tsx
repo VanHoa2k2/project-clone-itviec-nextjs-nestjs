@@ -95,8 +95,8 @@ const SearchClient = (props: any) => {
                     <>
                       <EnvironmentOutlined
                         type="button"
-                        onPointerEnterCapture={() => {}}
-                        onPointerLeaveCapture={() => {}}
+                        onMouseEnter={() => {}}
+                        onMouseLeave={() => {}}
                       />{" "}
                       Địa điểm...
                     </>
@@ -113,8 +113,8 @@ const SearchClient = (props: any) => {
                 icon={
                   <SearchOutlined
                     type="button"
-                    onPointerEnterCapture={() => {}}
-                    onPointerLeaveCapture={() => {}}
+                    onMouseEnter={() => {}}
+                    onMouseLeave={() => {}}
                   />
                 }
                 type="primary"

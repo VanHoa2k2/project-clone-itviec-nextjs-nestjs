@@ -136,8 +136,8 @@ const JobSuggestCard = (props: IProps) => {
                           <EnvironmentOutlined
                             style={{ color: "#58aaab" }}
                             type="button"
-                            onPointerEnterCapture={() => {}}
-                            onPointerLeaveCapture={() => {}}
+                            onMouseEnter={() => {}}
+                            onMouseLeave={() => {}}
                           />
                           &nbsp;{getLocationName(item.location)}
                         </div>
@@ -145,8 +145,8 @@ const JobSuggestCard = (props: IProps) => {
                           <ThunderboltOutlined
                             style={{ color: "orange" }}
                             type="button"
-                            onPointerEnterCapture={() => {}}
-                            onPointerLeaveCapture={() => {}}
+                            onMouseEnter={() => {}}
+                            onMouseLeave={() => {}}
                           />
                           &nbsp;
                           {(item.salary + "")?.replace(

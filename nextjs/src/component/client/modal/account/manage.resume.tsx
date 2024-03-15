@@ -89,8 +89,8 @@ const ManageResume = () => {
                 <p className="ant-upload-drag-icon">
                   <CloudUploadOutlined
                     type="button"
-                    onPointerEnterCapture={() => {}}
-                    onPointerLeaveCapture={() => {}}
+                    onMouseEnter={() => {}}
+                    onMouseLeave={() => {}}
                   />
                 </p>
                 <p className="ant-upload-text">
@@ -108,8 +108,8 @@ const ManageResume = () => {
                     <div className={`${styles["icon-resume"]}`}>
                       <SolutionOutlined
                         type="button"
-                        onPointerEnterCapture={() => {}}
-                        onPointerLeaveCapture={() => {}}
+                        onMouseEnter={() => {}}
+                        onMouseLeave={() => {}}
                       />
                     </div>
                   </Col>
@@ -127,8 +127,8 @@ const ManageResume = () => {
                           icon={
                             <UploadOutlined
                               type="button"
-                              onPointerEnterCapture={() => {}}
-                              onPointerLeaveCapture={() => {}}
+                              onMouseEnter={() => {}}
+                              onMouseLeave={() => {}}
                             />
                           }
                         >

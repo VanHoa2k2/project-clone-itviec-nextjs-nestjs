@@ -135,8 +135,8 @@ const PermissionPage = () => {
                 color: "#ffa500",
               }}
               type="button"
-              onPointerEnterCapture={() => {}}
-              onPointerLeaveCapture={() => {}}
+              onMouseEnter={() => {}}
+              onMouseLeave={() => {}}
               onClick={() => {
                 setOpenModal(true);
                 setDataInit(entity);
@@ -159,8 +159,8 @@ const PermissionPage = () => {
                     color: "#ff4d4f",
                   }}
                   type="button"
-                  onPointerEnterCapture={() => {}}
-                  onPointerLeaveCapture={() => {}}
+                  onMouseEnter={() => {}}
+                  onMouseLeave={() => {}}
                 />
               </span>
             </Popconfirm>
@@ -247,8 +247,8 @@ const PermissionPage = () => {
                 icon={
                   <PlusOutlined
                     type="button"
-                    onPointerEnterCapture={() => {}}
-                    onPointerLeaveCapture={() => {}}
+                    onMouseEnter={() => {}}
+                    onMouseLeave={() => {}}
                   />
                 }
                 type="primary"

@@ -58,8 +58,8 @@ const JobByEmail = (props: any) => {
                   <>
                     <MonitorOutlined
                       type="button"
-                      onPointerEnterCapture={() => {}}
-                      onPointerLeaveCapture={() => {}}
+                      onMouseEnter={() => {}}
+                      onMouseLeave={() => {}}
                     />{" "}
                     Tìm theo kỹ năng...
                   </>

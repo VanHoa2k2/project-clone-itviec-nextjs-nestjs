@@ -147,8 +147,8 @@ const JobPage = () => {
                 color: "#ffa500",
               }}
               type="button"
-              onPointerEnterCapture={() => {}}
-              onPointerLeaveCapture={() => {}}
+              onMouseEnter={() => {}}
+              onMouseLeave={() => {}}
               onClick={() => {
                 router.push(`job/upsert?id=${entity.id}`);
               }}
@@ -170,8 +170,8 @@ const JobPage = () => {
                     color: "#ff4d4f",
                   }}
                   type="button"
-                  onPointerEnterCapture={() => {}}
-                  onPointerLeaveCapture={() => {}}
+                  onMouseEnter={() => {}}
+                  onMouseLeave={() => {}}
                 />
               </span>
             </Popconfirm>
@@ -253,8 +253,8 @@ const JobPage = () => {
                 icon={
                   <PlusOutlined
                     type="button"
-                    onPointerEnterCapture={() => {}}
-                    onPointerLeaveCapture={() => {}}
+                    onMouseEnter={() => {}}
+                    onMouseLeave={() => {}}
                   />
                 }
                 type="primary"

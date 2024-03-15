@@ -140,8 +140,8 @@ const ResumePage = () => {
     //                     color: '#ffa500',
     //                 }}
     //                                   type="button"
-    // onPointerEnterCapture={() => {}}
-    // onPointerLeaveCapture={() => {}}
+    // onMouseEnter={() => {}}
+    // onMouseLeave={() => {}}
     //                 onClick={() => {
     //                     navigate(`/admin/job/upsert?id=${entity.id}`)
     //                 }}
@@ -162,8 +162,8 @@ const ResumePage = () => {
     //                             color: '#ff4d4f',
     //                         }}
     // type="button"
-    // onPointerEnterCapture={() => {}}
-    // onPointerLeaveCapture={() => {}}
+    // onMouseEnter={() => {}}
+    // onMouseLeave={() => {}}
     //                     />
     //                 </span>
     //             </Popconfirm>

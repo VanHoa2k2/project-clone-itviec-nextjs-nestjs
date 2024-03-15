@@ -240,14 +240,14 @@ const UserUpdateInfo = (props: any) => {
                     {loadingUpload ? (
                       <LoadingOutlined
                         type="button"
-                        onPointerEnterCapture={() => {}}
-                        onPointerLeaveCapture={() => {}}
+                        onMouseEnter={() => {}}
+                        onMouseLeave={() => {}}
                       />
                     ) : (
                       <PlusOutlined
                         type="button"
-                        onPointerEnterCapture={() => {}}
-                        onPointerLeaveCapture={() => {}}
+                        onMouseEnter={() => {}}
+                        onMouseLeave={() => {}}
                       />
                     )}
                     <div style={{ marginTop: 8 }}>Upload</div>

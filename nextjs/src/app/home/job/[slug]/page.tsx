@@ -82,8 +82,8 @@ const ClientJobDetailPage = (props: any) => {
                   <div className={styles["salary"]}>
                     <DollarOutlined
                       type="button"
-                      onPointerEnterCapture={() => {}}
-                      onPointerLeaveCapture={() => {}}
+                      onMouseEnter={() => {}}
+                      onMouseLeave={() => {}}
                     />
                     <span>
                       &nbsp;
@@ -98,16 +98,16 @@ const ClientJobDetailPage = (props: any) => {
                     <EnvironmentOutlined
                       style={{ color: "#58aaab" }}
                       type="button"
-                      onPointerEnterCapture={() => {}}
-                      onPointerLeaveCapture={() => {}}
+                      onMouseEnter={() => {}}
+                      onMouseLeave={() => {}}
                     />
                     &nbsp;{getLocationName(jobDetail.location)}
                   </div>
                   <div>
                     <HistoryOutlined
                       type="button"
-                      onPointerEnterCapture={() => {}}
-                      onPointerLeaveCapture={() => {}}
+                      onMouseEnter={() => {}}
+                      onMouseLeave={() => {}}
                     />{" "}
                     {dayjs(jobDetail.updatedAt).fromNow()}
                   </div>

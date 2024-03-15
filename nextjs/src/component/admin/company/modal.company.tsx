@@ -256,8 +256,8 @@ const ModalCompany = (props: IProps) => {
                 icon: (
                   <CheckSquareOutlined
                     type="button"
-                    onPointerEnterCapture={() => {}}
-                    onPointerLeaveCapture={() => {}}
+                    onMouseEnter={() => {}}
+                    onMouseLeave={() => {}}
                   />
                 ),
               },
@@ -323,14 +323,14 @@ const ModalCompany = (props: IProps) => {
                         {loadingUpload ? (
                           <LoadingOutlined
                             type="button"
-                            onPointerEnterCapture={() => {}}
-                            onPointerLeaveCapture={() => {}}
+                            onMouseEnter={() => {}}
+                            onMouseLeave={() => {}}
                           />
                         ) : (
                           <PlusOutlined
                             type="button"
-                            onPointerEnterCapture={() => {}}
-                            onPointerLeaveCapture={() => {}}
+                            onMouseEnter={() => {}}
+                            onMouseLeave={() => {}}
                           />
                         )}
                         <div style={{ marginTop: 8 }}>Upload</div>

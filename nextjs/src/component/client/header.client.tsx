@@ -60,8 +60,8 @@ const Header = (props: any) => {
       icon: (
         <TwitterOutlined
           type="button"
-          onPointerEnterCapture={() => {}}
-          onPointerLeaveCapture={() => {}}
+          onMouseEnter={() => {}}
+          onMouseLeave={() => {}}
         />
       ),
     },
@@ -71,8 +71,8 @@ const Header = (props: any) => {
       icon: (
         <CodeOutlined
           type="button"
-          onPointerEnterCapture={() => {}}
-          onPointerLeaveCapture={() => {}}
+          onMouseEnter={() => {}}
+          onMouseLeave={() => {}}
         />
       ),
     },
@@ -82,8 +82,8 @@ const Header = (props: any) => {
       icon: (
         <RiseOutlined
           type="button"
-          onPointerEnterCapture={() => {}}
-          onPointerLeaveCapture={() => {}}
+          onMouseEnter={() => {}}
+          onMouseLeave={() => {}}
         />
       ),
     },
@@ -116,8 +116,8 @@ const Header = (props: any) => {
       icon: (
         <ContactsOutlined
           type="button"
-          onPointerEnterCapture={() => {}}
-          onPointerLeaveCapture={() => {}}
+          onMouseEnter={() => {}}
+          onMouseLeave={() => {}}
         />
       ),
     },
@@ -127,8 +127,8 @@ const Header = (props: any) => {
       icon: (
         <DashOutlined
           type="button"
-          onPointerEnterCapture={() => {}}
-          onPointerLeaveCapture={() => {}}
+          onMouseEnter={() => {}}
+          onMouseLeave={() => {}}
         />
       ),
     },
@@ -142,8 +142,8 @@ const Header = (props: any) => {
       icon: (
         <LogoutOutlined
           type="button"
-          onPointerEnterCapture={() => {}}
-          onPointerLeaveCapture={() => {}}
+          onMouseEnter={() => {}}
+          onMouseLeave={() => {}}
         />
       ),
     },

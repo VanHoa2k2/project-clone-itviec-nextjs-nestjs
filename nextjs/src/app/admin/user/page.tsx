@@ -110,8 +110,8 @@ const UserPage = () => {
                 color: "#ffa500",
               }}
               type="button"
-              onPointerEnterCapture={() => {}}
-              onPointerLeaveCapture={() => {}}
+              onMouseEnter={() => {}}
+              onMouseLeave={() => {}}
               onClick={() => {
                 setOpenModal(true);
                 setDataInit(entity);
@@ -135,8 +135,8 @@ const UserPage = () => {
                     color: "#ff4d4f",
                   }}
                   type="button"
-                  onPointerEnterCapture={() => {}}
-                  onPointerLeaveCapture={() => {}}
+                  onMouseEnter={() => {}}
+                  onMouseLeave={() => {}}
                 />
               </span>
             </Popconfirm>
@@ -216,8 +216,8 @@ const UserPage = () => {
                 icon={
                   <PlusOutlined
                     type="button"
-                    onPointerEnterCapture={() => {}}
-                    onPointerLeaveCapture={() => {}}
+                    onMouseEnter={() => {}}
+                    onMouseLeave={() => {}}
                   />
                 }
                 type="primary"

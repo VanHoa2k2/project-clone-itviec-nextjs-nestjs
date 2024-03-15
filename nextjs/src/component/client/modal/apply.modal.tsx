@@ -197,8 +197,8 @@ const ApplyModal = (props: IProps) => {
                                   icon={
                                     <UploadOutlined
                                       type="button"
-                                      onPointerEnterCapture={() => {}}
-                                      onPointerLeaveCapture={() => {}}
+                                      onMouseEnter={() => {}}
+                                      onMouseLeave={() => {}}
                                     />
                                   }
                                 >

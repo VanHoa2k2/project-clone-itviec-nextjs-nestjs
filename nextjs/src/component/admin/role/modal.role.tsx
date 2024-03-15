@@ -180,8 +180,8 @@ const ModalRole = (props: IProps) => {
             icon: (
               <CheckSquareOutlined
                 type="button"
-                onPointerEnterCapture={() => {}}
-                onPointerLeaveCapture={() => {}}
+                onMouseEnter={() => {}}
+                onMouseLeave={() => {}}
               />
             ),
           },

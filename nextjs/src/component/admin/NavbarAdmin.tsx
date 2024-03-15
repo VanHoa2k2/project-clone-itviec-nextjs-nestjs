@@ -79,8 +79,8 @@ const NavbarAdmin = (props: NavbarAdminProps) => {
           icon: (
             <AppstoreOutlined
               type="button"
-              onPointerEnterCapture={() => {}}
-              onPointerLeaveCapture={() => {}}
+              onMouseEnter={() => {}}
+              onMouseLeave={() => {}}
             />
           ),
         },
@@ -92,8 +92,8 @@ const NavbarAdmin = (props: NavbarAdminProps) => {
                 icon: (
                   <BankOutlined
                     type="button"
-                    onPointerEnterCapture={() => {}}
-                    onPointerLeaveCapture={() => {}}
+                    onMouseEnter={() => {}}
+                    onMouseLeave={() => {}}
                   />
                 ),
               },
@@ -108,8 +108,8 @@ const NavbarAdmin = (props: NavbarAdminProps) => {
                 icon: (
                   <UserOutlined
                     type="button"
-                    onPointerEnterCapture={() => {}}
-                    onPointerLeaveCapture={() => {}}
+                    onMouseEnter={() => {}}
+                    onMouseLeave={() => {}}
                   />
                 ),
               },
@@ -123,8 +123,8 @@ const NavbarAdmin = (props: NavbarAdminProps) => {
                 icon: (
                   <ScheduleOutlined
                     type="button"
-                    onPointerEnterCapture={() => {}}
-                    onPointerLeaveCapture={() => {}}
+                    onMouseEnter={() => {}}
+                    onMouseLeave={() => {}}
                   />
                 ),
               },
@@ -139,8 +139,8 @@ const NavbarAdmin = (props: NavbarAdminProps) => {
                 icon: (
                   <AliwangwangOutlined
                     type="button"
-                    onPointerEnterCapture={() => {}}
-                    onPointerLeaveCapture={() => {}}
+                    onMouseEnter={() => {}}
+                    onMouseLeave={() => {}}
                   />
                 ),
               },
@@ -154,8 +154,8 @@ const NavbarAdmin = (props: NavbarAdminProps) => {
                 icon: (
                   <ApiOutlined
                     type="button"
-                    onPointerEnterCapture={() => {}}
-                    onPointerLeaveCapture={() => {}}
+                    onMouseEnter={() => {}}
+                    onMouseLeave={() => {}}
                   />
                 ),
               },
@@ -169,8 +169,8 @@ const NavbarAdmin = (props: NavbarAdminProps) => {
                 icon: (
                   <ExceptionOutlined
                     type="button"
-                    onPointerEnterCapture={() => {}}
-                    onPointerLeaveCapture={() => {}}
+                    onMouseEnter={() => {}}
+                    onMouseLeave={() => {}}
                   />
                 ),
               },
@@ -196,8 +196,8 @@ const NavbarAdmin = (props: NavbarAdminProps) => {
         <div style={{ height: 32, margin: 16, textAlign: "center" }}>
           <BugOutlined
             type="button"
-            onPointerEnterCapture={() => {}}
-            onPointerLeaveCapture={() => {}}
+            onMouseEnter={() => {}}
+            onMouseLeave={() => {}}
           />{" "}
           ADMIN
         </div>
