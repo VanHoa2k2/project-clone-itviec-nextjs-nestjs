@@ -12,6 +12,12 @@ const nextConfig = {
         port: "8088",
         pathname: "/images/company/**",
       },
+      {
+        protocol: "https",
+        hostname: "project-clone-itviec-nestjs.onrender.com",
+        port: "",
+        pathname: "/images/company/**",
+      },
     ],
     domains: ["localhost"],
   },
