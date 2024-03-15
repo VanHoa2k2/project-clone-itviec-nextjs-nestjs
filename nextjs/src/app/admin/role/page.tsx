@@ -106,8 +106,8 @@ const RolePage = () => {
                 color: "#ffa500",
               }}
               type="button"
-              onPointerEnterCapture={() => {}}
-              onPointerLeaveCapture={() => {}}
+              onMouseEnter={() => {}}
+              onMouseLeave={() => {}}
               onClick={() => {
                 dispatch(fetchRoleById(entity.id as number));
                 setOpenModal(true);
