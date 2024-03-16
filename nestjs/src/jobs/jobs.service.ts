@@ -230,7 +230,7 @@ export class JobsService {
         } as any;
       });
 
-      const url = `https://project-clone-itviec-nestjs.onrender.com/images/resume/${filename}`;
+      const url = `../../public/images/resume/${filename}`;
       // const url = `../../../../../nien_luan_nganh_khmt/website_dang_tin_tuyen_dung/nestjs/public/images/resume/${filename}`;
       console.log(url);
 
