@@ -18,6 +18,7 @@ export default function DashboardLayout({
   useEffect(() => {
     dispatch(fetchAccount());
   }, []);
+
   const [collapsed, setCollapsed] = useState<boolean>(false);
 
   return (

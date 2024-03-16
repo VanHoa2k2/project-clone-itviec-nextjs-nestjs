@@ -42,7 +42,7 @@ const HeaderAdmin = (props: HeaderAdminProps) => {
 
   const itemsDropdown = [
     {
-      label: <Link href={"/"}>Trang chủ</Link>,
+      label: <Link href={"/home"}>Trang chủ</Link>,
       key: "home",
     },
     {

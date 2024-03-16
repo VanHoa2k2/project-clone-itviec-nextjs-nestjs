@@ -233,7 +233,6 @@ export class JobsService {
 
       const publicDir = join(__dirname, '..', '..', 'public');
       const url = join(publicDir, 'images', 'resume', filename);
-      console.log(url);
 
       const pdfExtract = new PDFExtract();
       const options = {}; /* see below */
@@ -242,7 +241,6 @@ export class JobsService {
 
       await new Promise((resolve, reject) => {
         pdfExtract.extract(url, options, (err, data) => {
-          console.log(data);
           if (err) reject(err);
           data.pages[0].content.map((obj: any) => {
             textArr.push(obj.str);

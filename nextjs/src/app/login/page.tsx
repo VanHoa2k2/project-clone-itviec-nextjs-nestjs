@@ -7,31 +7,31 @@ import { useDispatch } from "react-redux";
 import styles from "@/styles/auth.module.scss";
 import { callLogin } from "@/config/api";
 import { useRouter } from "next/navigation";
-import { setUserLoginInfo } from "../redux/slice/accountSlide";
+import { fetchAccount, setUserLoginInfo } from "../redux/slice/accountSlide";
 import { useAppSelector } from "../redux/hooks";
 
 const LoginPage = () => {
-  // const navigate = useNavigate();
+  const router = useRouter();
+
   const [isSubmit, setIsSubmit] = useState<boolean>(false);
   const dispatch = useDispatch();
   const isAuthenticated = useAppSelector(
     (state) => state?.account?.isAuthenticated
   );
   const user = useAppSelector((state) => state?.account?.user);
-  const router = useRouter();
+
   // const callback = router.back() as string | undefined;
   // let params = new URLSearchParams(location.search);
   // const callback = params?.get("callback");
   useEffect(() => {
-    //đã login => redirect to '/'
     if (isAuthenticated) {
-      if (user.role.name === "NORMAL_USER") {
+      if (user?.role?.name === "NORMAL_USER") {
         router.push("/home");
       } else {
         router.push("/admin");
       }
     }
-  }, [user.role.name, isAuthenticated, router]);
+  }, [user?.role?.name, isAuthenticated, router]);
 
   const onFinish = async (values: any) => {
     const { username, password } = values;
@@ -39,16 +39,16 @@ const LoginPage = () => {
     const res = await callLogin(username, password);
     setIsSubmit(false);
     if (res?.data) {
-      localStorage.setItem("access_token", res.data.access_token);
-      dispatch(setUserLoginInfo(res.data.user));
+      localStorage.setItem("access_token", res?.data?.access_token);
+      dispatch(setUserLoginInfo(res?.data?.user));
       message.success("Đăng nhập tài khoản thành công!");
     } else {
       notification.error({
         message: "Có lỗi xảy ra",
         description:
-          res.message && Array.isArray(res.message)
-            ? res.message[0]
-            : res.message,
+          res?.message && Array.isArray(res?.message)
+            ? res?.message[0]
+            : res?.message,
         duration: 5,
       });
     }

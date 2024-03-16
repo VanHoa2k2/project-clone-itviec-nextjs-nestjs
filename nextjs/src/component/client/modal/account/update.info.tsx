@@ -28,7 +28,6 @@ import { LoadingOutlined, PlusOutlined } from "@ant-design/icons";
 import { v4 as uuidv4 } from "uuid";
 import enUS from "antd/lib/locale/en_US";
 import styles from "@/styles/client.module.scss";
-import { fetchAccount } from "@/app/redux/slice/accountSlide";
 import IUserInfoContext, {
   userInfoContext,
 } from "@/contextAPI/userInfoContext";

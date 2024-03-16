@@ -1,11 +1,13 @@
+"use client";
+
 import { useRouter } from "next/navigation";
 import { useAppSelector } from "@/app/redux/hooks";
-import NotPermitted from "./not-permitted";
 import Loading from "../loading";
+import NotPermitted from "./not-permitted";
 
 const RoleBaseRoute = (props: any) => {
   const user = useAppSelector((state) => state?.account?.user);
-  const userRole = user.role.name;
+  const userRole = user?.role?.name;
 
   if (userRole !== "NORMAL_USER") {
     return <>{props.children}</>;

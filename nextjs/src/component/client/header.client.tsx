@@ -98,7 +98,6 @@ const Header = (props: any) => {
     if (res && res.data) {
       dispatch(setLogoutAction({}));
       message.success("Đăng xuất thành công");
-      route.push("/");
     }
   };
 

@@ -34,7 +34,6 @@ export class JwtAuthGuard extends AuthGuard('jwt') {
       IS_PUBLIC_PERMISSIONS,
       [context.getHandler(), context.getClass()],
     );
-
     // You can throw an exception based on either "info" or "err" arguments
     if (err || !user) {
       throw (

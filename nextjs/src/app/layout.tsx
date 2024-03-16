@@ -4,6 +4,7 @@ import "./globals.css";
 // import StyledComponentsRegistry from "@/lib/antd.registry";
 import { Providers } from "./redux/provider";
 import { AntdRegistry } from "@ant-design/nextjs-registry";
+
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {

@@ -30,7 +30,7 @@ export const fetchAccount = createAsyncThunk(
         store.dispatch(setRefreshTokenAction({ status: true, message }));
       }
     }
-    return resFetchAccount.data;
+    return resFetchAccount?.data;
   }
 );
 
@@ -104,8 +104,8 @@ export const accountSlide = createSlice({
       state.user.id = action?.payload?.id;
       state.user.email = action.payload.email;
       state.user.name = action.payload.name;
-      state.user.urlCV = action.payload.urlCV;
-      state.user.avatar = action.payload.avatar;
+      state.user.urlCV = action?.payload?.urlCV;
+      state.user.avatar = action?.payload?.avatar;
       state.user.company = action?.payload?.company;
       state.user.role = action?.payload?.role;
       state.user.permissions = action?.payload?.permissions;

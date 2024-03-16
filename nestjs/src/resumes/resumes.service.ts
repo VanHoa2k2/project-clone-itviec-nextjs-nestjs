@@ -86,9 +86,7 @@ export class ResumesService {
     // Object.keys(filter).forEach((key) => {
     //   regexFilter[key] = ILike(`%${filter[key]}%`);
     // });
-    console.log(filter);
     Object.keys(filter).forEach((key) => {
-      console.log(key);
       regexFilter[key] =
         key !== 'company'
           ? ILike(`%${filter[key]}%`)
@@ -117,7 +115,6 @@ export class ResumesService {
         name: resume.job.name,
       } as any;
     });
-    console.log(result);
     const totalPages = Math.ceil(totalItems / defaultLimit);
 
     return {
