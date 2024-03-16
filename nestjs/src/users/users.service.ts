@@ -28,7 +28,7 @@ export class UsersService {
 
   async register(user: RegisterUserDto) {
     const { name, email, password, address, age, gender, role } = user;
-
+    console.log(role.id);
     //add logic check email
     const isExist = await this.usersRepository.findOne({ where: { email } });
     if (isExist) {
@@ -36,7 +36,7 @@ export class UsersService {
         `Email: ${email} đã tồn tại trên hệ thống. Vui lòng sử dụng email khác.`,
       );
     }
-
+    console.log(isExist);
     const hashPassword = this.getHashPassword(password);
 
     const newRegister = await this.usersRepository.create({
@@ -47,10 +47,10 @@ export class UsersService {
       gender,
       address,
       role: {
-        id: role.id,
+        id: role?.id,
       },
     });
-
+    console.log(newRegister);
     return await this.usersRepository.save(newRegister);
   }
 
@@ -89,6 +89,7 @@ export class UsersService {
         email: user.email,
       },
     });
+    console.log(newUser);
 
     return await this.usersRepository.save(newUser);
   }

@@ -20,6 +20,7 @@ interface AccessTokenResponse {
 }
 
 export const callRegister = async (data: IUser) => {
+  console.log(process.env.ID_NORMAL_USER);
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_URL_BACKEND}/api/v1/auth/register`,
     {
@@ -28,7 +29,7 @@ export const callRegister = async (data: IUser) => {
         ...data,
         age: +data.age,
         role: {
-          id: 226,
+          id: 2,
         },
       }),
       headers: {
