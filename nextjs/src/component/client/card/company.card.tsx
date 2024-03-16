@@ -20,7 +20,6 @@ const CompanyCard = (props: IProps) => {
   const { showPagination = false } = props;
 
   const [displayCompany, setDisplayCompany] = useState<ICompany[] | null>(null);
-  console.log(displayCompany);
   const [isLoading, setIsLoading] = useState<boolean>(false);
 
   const [current, setCurrent] = useState(1);

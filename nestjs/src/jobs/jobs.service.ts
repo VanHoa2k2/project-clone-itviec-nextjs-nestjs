@@ -230,7 +230,9 @@ export class JobsService {
         } as any;
       });
 
-      const url = `../../../../../nien_luan_nganh_khmt/website_dang_tin_tuyen_dung/nestjs/public/images/resume/${filename}`;
+      const url = `https://project-clone-itviec-nestjs.onrender.com/images/resume/${filename}`;
+      // const url = `../../../../../nien_luan_nganh_khmt/website_dang_tin_tuyen_dung/nestjs/public/images/resume/${filename}`;
+      console.log(url);
 
       const pdfExtract = new PDFExtract();
       const options = {}; /* see below */
@@ -239,10 +241,12 @@ export class JobsService {
 
       await new Promise((resolve, reject) => {
         pdfExtract.extract(url, options, (err, data) => {
+          console.log(data);
           if (err) reject(err);
           data.pages[0].content.map((obj: any) => {
             textArr.push(obj.str);
           });
+          // console.log(textArr);
           const textFile = textArr.join('');
           const textFileLowerCase = textFile.toLocaleLowerCase();
           tfidf.addDocument(textFileLowerCase);
