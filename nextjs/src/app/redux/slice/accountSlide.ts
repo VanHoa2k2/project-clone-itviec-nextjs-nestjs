@@ -6,31 +6,40 @@ import { store } from "../store";
 export const fetchAccount = createAsyncThunk(
   "account/fetchAccount",
   async () => {
-    const resFetchAccount = await callFetchAccount();
-    // Khi access token hết hạn sẽ gọi hàm handleRefreshToken
-    if (
-      resFetchAccount?.statusCode === 401 &&
-      resFetchAccount?.error === "Unauthorized"
-    ) {
-      const resRefreshToken = await handleRefreshToken(); // refresh token để trả về access token mới
+    const accessToken = localStorage.getItem("access_token");
+    if (accessToken) {
+      const resFetchAccount = await callFetchAccount();
 
-      if (resRefreshToken?.data?.access_token) {
-        localStorage.setItem(
-          "access_token",
-          resRefreshToken?.data?.access_token
-        );
-        const resFetchAccount = await callFetchAccount();
-        return resFetchAccount.data;
+      // Khi access token hết hạn sẽ gọi hàm handleRefreshToken
+      console.log("resFetchAccount", resFetchAccount);
+      if (
+        resFetchAccount?.statusCode === 401 &&
+        resFetchAccount?.error === "Unauthorized"
+      ) {
+        const resRefreshToken = await handleRefreshToken(); // refresh token để trả về access token mới
+        console.log("resRefreshToken", resRefreshToken);
+        if (resRefreshToken?.data?.access_token) {
+          localStorage.setItem(
+            "access_token",
+            resRefreshToken?.data?.access_token
+          );
+          const resFetchAccount = await callFetchAccount();
+          if (resFetchAccount?.statusCode === 200) {
+            return resFetchAccount?.data;
+          }
+        }
+
+        if (resRefreshToken?.statusCode === 400) {
+          const message =
+            resFetchAccount?.message ?? "Có lỗi xảy ra, vui lòng login.";
+          //dispatch redux action
+          store.dispatch(setRefreshTokenAction({ status: true, message }));
+        }
       }
-
-      if (resRefreshToken?.statusCode === 400) {
-        const message =
-          resFetchAccount?.message ?? "Có lỗi xảy ra, vui lòng login.";
-        //dispatch redux action
-        store.dispatch(setRefreshTokenAction({ status: true, message }));
+      if (resFetchAccount?.statusCode === 200) {
+        return resFetchAccount?.data;
       }
     }
-    return resFetchAccount?.data;
   }
 );
 

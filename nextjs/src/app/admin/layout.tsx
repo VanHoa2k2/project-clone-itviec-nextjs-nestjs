@@ -5,7 +5,7 @@ import NavbarAdmin from "@/component/admin/NavbarAdmin";
 import { Layout } from "antd";
 import { Content } from "antd/es/layout/layout";
 import { useEffect, useState } from "react";
-import { useAppDispatch } from "../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { fetchAccount } from "../redux/slice/accountSlide";
 import LayoutApp from "@/component/share/layout.app";
 import ProtectedRoute from "@/component/share/protected-route.ts";
@@ -17,7 +17,7 @@ export default function DashboardLayout({
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(fetchAccount());
-  }, []);
+  }, [dispatch]);
 
   const [collapsed, setCollapsed] = useState<boolean>(false);
 

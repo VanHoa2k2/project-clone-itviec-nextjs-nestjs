@@ -10,9 +10,9 @@ import {
   ScheduleOutlined,
   UserOutlined,
 } from "@ant-design/icons";
-import { Layout, Menu, Dropdown, Space, message, Avatar, Button } from "antd";
+import { Layout, Menu } from "antd";
 import Link from "next/link";
-import React, { SetStateAction, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import type { MenuProps } from "antd";
 import { usePathname } from "next/navigation";
 import { useAppSelector } from "@/app/redux/hooks";

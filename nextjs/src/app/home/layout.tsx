@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { useAppDispatch } from "../redux/hooks";
+import { useAppDispatch, useAppSelector } from "../redux/hooks";
 import { fetchAccount } from "../redux/slice/accountSlide";
 import { usePathname } from "next/navigation";
 import Header from "@/component/client/header.client";
@@ -29,7 +29,7 @@ export default function DashboardLayout({
   const dispatch = useAppDispatch();
   useEffect(() => {
     dispatch(fetchAccount());
-  }, []);
+  }, [dispatch]);
 
   return (
     <ResumeProvider>
