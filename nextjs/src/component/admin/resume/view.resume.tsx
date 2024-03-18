@@ -112,6 +112,14 @@ const ViewDetailResume = (props: IProps) => {
               ? dayjs(dataInit.updatedAt).format("DD-MM-YYYY HH:mm:ss")
               : ""}
           </Descriptions.Item>
+          <Descriptions.Item label="Hồ sơ ứng viên">
+            <a
+              href={`${process.env.NEXT_PUBLIC_URL_BACKEND}/images/resume/${dataInit?.url}`}
+              target="_blank"
+            >
+              {dataInit?.url}
+            </a>
+          </Descriptions.Item>
         </Descriptions>
       </Drawer>
     </>

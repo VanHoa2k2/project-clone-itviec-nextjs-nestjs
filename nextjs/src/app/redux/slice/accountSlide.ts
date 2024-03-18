@@ -11,13 +11,11 @@ export const fetchAccount = createAsyncThunk(
       const resFetchAccount = await callFetchAccount();
 
       // Khi access token hết hạn sẽ gọi hàm handleRefreshToken
-      console.log("resFetchAccount", resFetchAccount);
       if (
         resFetchAccount?.statusCode === 401 &&
         resFetchAccount?.error === "Unauthorized"
       ) {
         const resRefreshToken = await handleRefreshToken(); // refresh token để trả về access token mới
-        console.log("resRefreshToken", resRefreshToken);
         if (resRefreshToken?.data?.access_token) {
           localStorage.setItem(
             "access_token",

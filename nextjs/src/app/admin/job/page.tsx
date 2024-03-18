@@ -28,6 +28,7 @@ import Access from "@/component/share/access";
 import { ALL_PERMISSIONS } from "@/config/permissions";
 
 const JobPage = () => {
+  const user = useAppSelector((state) => state?.account?.user);
   const tableRef = useRef<ActionType>();
 
   const isFetching = useAppSelector((state) => state.job.isFetching);
@@ -188,6 +189,7 @@ const JobPage = () => {
     if (clone?.level?.length) {
       clone.level = clone.level.join(",");
     }
+    if (user?.company?.id) clone.company = `${user?.company?.id}`;
 
     let temp = queryString.stringify(clone);
 
