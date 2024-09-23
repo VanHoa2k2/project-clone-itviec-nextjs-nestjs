@@ -47,7 +47,17 @@ export class AuthService {
   }
 
   async login(user: IUser, response: Response) {
-    const { id, name, email, role, urlCV, avatar, company, permissions } = user;
+    const {
+      id,
+      name,
+      email,
+      role,
+      urlCV,
+      avatar,
+      company,
+      notifies,
+      permissions,
+    } = user;
     const payload = {
       sub: 'token login',
       iss: 'from server',
@@ -58,6 +68,7 @@ export class AuthService {
       urlCV,
       avatar,
       company,
+      notifies,
     };
 
     const refresh_token = this.createRefreshToken(payload);
@@ -81,6 +92,7 @@ export class AuthService {
         avatar,
         role,
         company,
+        notifies,
         permissions,
       },
     };

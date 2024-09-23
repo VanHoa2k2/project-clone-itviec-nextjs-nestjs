@@ -1,4 +1,5 @@
 import { Company } from 'src/companies/entities/company.entity';
+import { Notify } from 'src/notifies/entities/notify.entity';
 import { Role } from 'src/roles/entities/role.entity';
 import {
   Entity,
@@ -9,6 +10,7 @@ import {
   DeleteDateColumn,
   JoinColumn,
   ManyToOne,
+  OneToMany,
 } from 'typeorm';
 
 @Entity()
@@ -47,6 +49,10 @@ export class User {
   @ManyToOne(() => Role)
   @JoinColumn()
   role: Role;
+
+  @OneToMany(() => Notify, (notify) => notify.user)
+  @JoinColumn()
+  notifies: Notify[];
 
   @Column({ nullable: true })
   refreshToken: string;

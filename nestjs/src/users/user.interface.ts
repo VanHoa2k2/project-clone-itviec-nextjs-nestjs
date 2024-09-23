@@ -4,6 +4,14 @@ export interface IUser {
   email: string;
   urlCV: string;
   avatar: string;
+  notifies?: {
+    id: number;
+    status?: string;
+    title?: string;
+    description?: string;
+    createdAt?: string;
+  }[];
+
   role: {
     id: number;
     name: string;

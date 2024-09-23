@@ -23,6 +23,7 @@ export class CompaniesService {
         email: user.email,
       },
     });
+    console.log(company);
     return await this.companyRepository.save(company);
   }
 

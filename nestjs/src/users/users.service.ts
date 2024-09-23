@@ -48,6 +48,7 @@ export class UsersService {
         id: role?.id,
       },
     });
+
     return await this.usersRepository.save(newRegister);
   }
 
@@ -136,7 +137,7 @@ export class UsersService {
   async findOne(id: number) {
     const user = await this.usersRepository.findOne({
       where: { id },
-      relations: ['company', 'role'],
+      relations: ['company', 'role', 'notifies'],
     });
     const role = {
       id: user?.role?.id,

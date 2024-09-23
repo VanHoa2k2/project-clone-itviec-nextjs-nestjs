@@ -100,7 +100,7 @@ export class ResumesService {
       take: defaultLimit,
       skip: offset,
       order: sort as any, // Ép kiểu dữ liệu
-      relations: ['histories', 'company', 'job'],
+      relations: ['histories', 'company', 'job', 'createdBy'],
     });
 
     result.map((resume) => {
@@ -113,6 +113,11 @@ export class ResumesService {
       resume.job = {
         id: resume.job.id,
         name: resume.job.name,
+      } as any;
+
+      resume.createdBy = {
+        id: resume.createdBy.id,
+        name: resume.createdBy.name,
       } as any;
     });
     const totalPages = Math.ceil(totalItems / defaultLimit);
@@ -207,7 +212,7 @@ export class ResumesService {
 
   async getCvByUser(user: IUser) {
     const resumes = await this.resumeRepository.find({
-      where: { userId: user.id },
+      where: { createdBy: { id: user.id } },
       order: { createdAt: 'DESC' } as OrderByCondition,
       relations: ['company', 'job'],
     });
