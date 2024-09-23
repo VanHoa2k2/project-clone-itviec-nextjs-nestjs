@@ -4,7 +4,7 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { ConfigModule, ConfigService } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { join } from 'path';
+// import { join } from 'path';
 import { AuthModule } from './auth/auth.module';
 import { CompaniesModule } from './companies/companies.module';
 import { JobsModule } from './jobs/jobs.module';
@@ -21,17 +21,17 @@ import { NotifiesModule } from './notifies/notifies.module';
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
-      useFactory: (configService: ConfigService) => ({
-        type: 'postgres',
-        host: configService.get<string>('DB_HOST'),
-        port: +configService.get<string>('DB_PORT'),
-        username: configService.get<string>('DB_USERNAME'),
-        password: configService.get<string>('DB_PASSWORD'),
-        database: configService.get<string>('DB_NAME'),
-        entities: [join(process.cwd(), 'dist/**/*.entity.js')],
-        // do NOT use synchronize: true in real projects
-        synchronize: true,
-      }),
+      // useFactory: (configService: ConfigService) => ({
+      //   type: 'postgres',
+      //   host: configService.get<string>('DB_HOST'),
+      //   port: +configService.get<string>('DB_PORT'),
+      //   username: configService.get<string>('DB_USERNAME'),
+      //   password: configService.get<string>('DB_PASSWORD'),
+      //   database: configService.get<string>('DB_NAME'),
+      //   entities: [join(process.cwd(), 'dist/**/*.entity.js')],
+      //   // do NOT use synchronize: true in real projects
+      //   synchronize: true,
+      // }),
     }),
     UsersModule,
     AuthModule,
